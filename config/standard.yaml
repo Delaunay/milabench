@@ -177,6 +177,11 @@ benchmarks:
       --batch-size: 16
       --with-amp: null
 
+  rnn:
+    <<<: *torchbench
+    
+    model: tacotron2
+    
   bert:
     <<<: *torchbench
 
