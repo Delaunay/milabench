@@ -29,8 +29,6 @@ class MLPerfPack(Package):
         return self.dirs.code / self.mlperf_bench / "download_dataset.sh"
     
     def install(self):
-        super().install()
-        
         install_method = f'install_{self.mlperf_bench}'
         
         if hasattr(self, install_method):
@@ -50,7 +48,7 @@ class MLPerfPack(Package):
         run_method = f'run_{self.mlperf_bench}'
         
         if hasattr(self, run_method):
-            getattr(self, run_method)(self)
+            getattr(self, run_method)(self, args, voirargs, env)
         else:
             raise RuntimeError(f'{self.mlperf_bench} is not implemented')
         
@@ -82,6 +80,6 @@ class MLPerfPack(Package):
         ]
     
         return self.launch(multiproc, args=required_args + list(args), voirargs=voirargs, env=env)
-    
+
 
 __pack__ = MLPerfPack

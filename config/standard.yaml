@@ -26,6 +26,16 @@ defaults: &defaults
     --poll-gpu: 10
 
 
+mlperf: &mlperf
+  <<<: *defaults
+  
+  dirs:
+    code: code/mlperf
+    venv: venv/mlperf
+
+  definition: ../benchmarks/mlperf
+
+
 torchvision: &torchvision
   <<<: *defaults
 
@@ -139,6 +149,11 @@ sb3: &sb3
 
 
 benchmarks:
+  rnn_translator:
+    <<<: *mlperf
+    argv:
+      benchmark: rnn_translator
+
   resnet50:
     <<<: *torchvision
     argv:
