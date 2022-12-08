@@ -35,3 +35,9 @@ benchmarks:
 
     definition: ./
     benchmark: rnn_translator
+
+  rnn_speech_recognition:
+    <<<: *defaults
+
+    definition: ./
+    benchmark: rnn_speech_recognition

@@ -28,11 +28,23 @@ defaults: &defaults
 
 mlperf: &mlperf
   <<<: *defaults
-  
+
+  group: mlperf
+  install_group: mlperf
+
   dirs:
     code: code/mlperf
     venv: venv/mlperf
 
+  plan:
+    method: per_gpu
+
+  voir:
+    --stop: 30
+    --metric: step
+    --metric-interval: 1s
+    --metric-skip: 5s
+  
   definition: ../benchmarks/mlperf
 
 
@@ -151,8 +163,11 @@ sb3: &sb3
 benchmarks:
   rnn_translator:
     <<<: *mlperf
-    argv:
-      benchmark: rnn_translator
+    benchmark: rnn_translator
+
+  rnn_speech_recognition:
+    <<<: *mlperf
+    benchmark: rnn_speech_recognition
 
   resnet50:
     <<<: *torchvision

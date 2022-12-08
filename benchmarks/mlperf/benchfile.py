@@ -3,8 +3,7 @@ import subprocess
 from milabench.pack import Package
 
 REPOSITORY = "https://github.com/mlcommons/training.git"
-BRANCH = "v0.5"
-BENCHNAME = "rnn_translator"
+BRANCH = "master"
 
 
 class MLPerfPack(Package):
@@ -19,55 +18,61 @@ class MLPerfPack(Package):
     @property
     def output_directory(self):
         return self.dirs.data / "output"
-      
-    @property
-    def requirement_file(self):
-        return self.dirs.code / self.mlperf_bench / "pytorch" / "requirements.txt"
     
-    @property
-    def download_script(self):
-        return self.dirs.code / self.mlperf_bench / "download_dataset.sh"
+    def bench_dispatch(self, method, *args, **kwargs):
+        method = f'{method}_{self.mlperf_bench}'
+        
+        if hasattr(self, method):
+            getattr(self, method)(*args, **kwargs)
+        else:
+            raise RuntimeError(f'{method} is not implemented')  
     
     def install(self):
-        install_method = f'install_{self.mlperf_bench}'
+        code = self.dirs.code
+        code.clone_subtree(REPOSITORY, BRANCH)
         
-        if hasattr(self, install_method):
-            getattr(self, install_method)(self)
-        else:
-            raise RuntimeError(f'{self.mlperf_bench} is not implemented')
+        self.bench_dispatch("install")
 
     def prepare(self):
-        prepare_method = f'prepare_{self.mlperf_bench}'
-        
-        if hasattr(self, prepare_method):
-            getattr(self, prepare_method)(self)
-        else:
-            raise RuntimeError(f'{self.mlperf_bench} is not implemented')
+        self.bench_dispatch("prepare")
         
     def run(self, args, voirargs, env):
-        run_method = f'run_{self.mlperf_bench}'
+        self.bench_dispatch("run")
         
-        if hasattr(self, run_method):
-            getattr(self, run_method)(self, args, voirargs, env)
-        else:
-            raise RuntimeError(f'{self.mlperf_bench} is not implemented')
         
+    # RNN Speech Recognition
+    # ======================
+        
+    def install_rnn_speech_recognition(self):
+        reqfile = self.dirs.code / self.mlperf_bench / "pytorch" / "requirements.txt"
+        self.pip_install("-r", reqfile)
+        
+    def prepare_rnn_speech_recognition(self):
+        download_script = self.dirs.code / "rnn_speech_recognition" / "pytorch" / "scripts" / "download_librispeech.sh"
+        subprocess.check_call(["bash", download_script])
+    
+        preprocess = self.dirs.code / "rnn_speech_recognition" / "pytorch" / "scripts" / "preprocess_librispeech.sh"
+        subprocess.check_call(["bash", preprocess])
+        
+    def run_rnn_speech_recognition(self, args, voirargs, env):
+        pass
+    
     # RNN translator
     # ==============
     
     def install_rnn_translator(self):
-        code = self.dirs.code
-        code.clone_subtree(REPOSITORY, BRANCH)
-
-        self.pip_install("-r", self.requirement_file())
+        reqfile = self.dirs.code / self.mlperf_bench / "pytorch" / "requirements.txt"
+        self.pip_install("-r", reqfile)
         
     def prepare_rnn_translator(self):
-        subprocess.check_call(["bash", self.download_script, self.dataset_directory])
+        download_script = self.dirs.code / "rnn_translator" / "download_dataset.sh"
+        
+        subprocess.check_call(["bash", download_script, self.dataset_directory])
 
     def run_rnn_translator(self, args, voirargs, env):
         """Execute the benchmark"""
-        multiproc = self.dirs.code / BENCHNAME / "pytorch" / "multiproc.py"
-        train = self.dirs.code / BENCHNAME / "pytorch" / "train.py"
+        multiproc = self.dirs.code / "rnn_translator" / "pytorch" / "multiproc.py"
+        train = self.dirs.code / "rnn_translator" / "pytorch" / "train.py"
         
         required_args = [
             train,
