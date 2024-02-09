@@ -168,3 +168,4 @@ voir==0.2.11
     #   -c .pin/../.pin/constraints-rocm-torch.txt
     #   -c .pin/../constraints/rocm.txt
     #   -r benchmarks/torchvision/requirements.in
+cantilever==0.0.2

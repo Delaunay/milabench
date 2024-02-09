@@ -205,3 +205,4 @@ voir==0.2.12
     #   -c .pin/../.pin/constraints-cuda-torch.txt
     #   -c .pin/../constraints/cuda.txt
     #   -r benchmarks/torchvision/requirements.in
+cantilever==0.0.2
