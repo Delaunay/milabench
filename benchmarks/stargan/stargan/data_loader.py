@@ -78,6 +78,7 @@ def get_loader(
     dataset="CelebA",
     mode="train",
     num_workers=1,
+    epochs=10,
 ):
     """Build and return a data loader."""
     transform = []
@@ -97,7 +98,12 @@ def get_loader(
     data_loader = data.DataLoader(
         dataset=dataset,
         batch_size=batch_size,
-        shuffle=(mode == "train"),
+        # shuffle=(mode == "train"),
         num_workers=num_workers,
+        sampler=torch.utils.data.RandomSampler(
+            dataset, 
+            replacement=True, 
+            num_samples=len(dataset) * epochs
+        )
     )
     return data_loader

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 
 from voir import configurable
-from voir.instruments import dash, early_stop, gpu_monitor, log, rate
+from voir.instruments import dash, early_stop, monitor_all, log, rate
 
 
 @dataclass
@@ -23,6 +23,15 @@ class Config:
     # Number of seconds between each gpu poll
     gpu_poll: int = 3
 
+metrics = [
+    "value", "progress", "rate", "units", "loss", "time",
+    
+    # Monitor info
+    "gpudata",
+    "iodata",
+    "netdata",
+    "cpudata",
+]
 
 @configurable
 def instrument_main(ov, options: Config):
@@ -30,16 +39,16 @@ def instrument_main(ov, options: Config):
 
     yield ov.phases.init
 
-    if options.dash:
-        ov.require(dash)
+    #if options.dash:
+    #    ov.require(dash)
 
     ov.require(
-        log("value", "progress", "rate", "units", "loss", "gpudata", "time", context="task"),
+        log(*metrics, context="task"),
         rate(
             interval=options.interval,
             skip=options.skip,
             sync=torch.cuda.synchronize if torch.cuda.is_available() else None,
         ),
         early_stop(n=options.stop, key="rate", task="train"),
-        gpu_monitor(poll_interval=options.gpu_poll),
+        monitor_all(poll_interval=options.gpu_poll),
     )

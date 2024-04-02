@@ -43,6 +43,29 @@ def scaling(enable):
         yield
 
 
+def titerator(iterator):
+    import cProfile
+    from cantilever.core.timer import _current
+
+    self = _current()
+    # pr = cProfile.Profile()
+    
+    while True:
+        with self.timeit("next"):
+            try:
+                # pr.enable()
+                batch = next(iterator)
+                # pr.disable()
+                
+            except StopIteration:
+                # pr.dump_stats("/home/mila/d/delaunap/milabench/profile.txt")
+                # python -c "import pstats; pstats.Stats('profile.txt').print_stats()"
+                return
+        
+        yield batch
+
+
+
 def train_epoch(model, criterion, optimizer, loader, device, scaler=None):
     model.train()
 
@@ -53,9 +76,11 @@ def train_epoch(model, criterion, optimizer, loader, device, scaler=None):
         with timeit("loader"):
             return iter(loader)
     
-    # this is what computes the batch size
-    for inp, target in timeiterator(voir.iterate("train", toiterator(loader), True)):
-        
+    def get_batch_size(batch):
+        return len(batch[0])
+    
+    # this is what computes the batch size # )
+    for inp, target in titerator(voir.iterate("train", toiterator(loader), True, batch_size=get_batch_size)):
         with timeit("batch"):
             inp = inp.to(device)
             target = target.to(device)
@@ -96,15 +121,86 @@ class SyntheticData:
     def __len__(self):
         return self.n
 
+def dali(args, images_dir):
+    from nvidia.dali.pipeline import pipeline_def
+    import nvidia.dali.types as types
+    import nvidia.dali.fn as fn
+    from nvidia.dali.plugin.pytorch import DALIGenericIterator
+    print(images_dir)
+
+    @pipeline_def(num_threads=args.num_workers, device_id=0)
+    def get_dali_pipeline():
+        images, labels = fn.readers.file(
+            file_root=images_dir, 
+            random_shuffle=True, 
+            name="Reader",
+        )
+        # decode data on the GPU
+        images = fn.decoders.image_random_crop(
+            images, 
+            device="mixed", 
+            output_type=types.RGB,
+        )
+        # the rest of processing happens on the GPU as well
+        images = fn.resize(images, resize_x=256, resize_y=256)
+        images = fn.crop_mirror_normalize(
+            images,
+            crop_h=224,
+            crop_w=224,
+            mean=[0.485 * 255, 0.456 * 255, 0.406 * 255],
+            std=[0.229 * 255, 0.224 * 255, 0.225 * 255],
+            mirror=fn.random.coin_flip()
+        )
+        return images, labels
+
+    train_data = DALIGenericIterator(
+        [get_dali_pipeline(batch_size=args.batch_size)],
+        ['data', 'label'],
+        reader_name='Reader'
+    )
+
+    def iter():
+        for _ in range(args.epochs):
+            for data in train_data:
+                x, y = data[0]['data'], data[0]['label']
+                yield x, torch.squeeze(y, dim=1).type(torch.LongTensor)
+
+    yield from iter()
+
+
+def dataloader(args, model, device):    
+    if args.loader == "dali":
+        return dali(args, os.path.join(args.data, "train"))
+
+    if args.data:
+        train = datasets.ImageFolder(os.path.join(args.data, "train"), data_transforms)
+        return torch.utils.data.DataLoader(
+            train,
+            batch_size=args.batch_size,
+            sampler=torch.utils.data.RandomSampler(
+                train, 
+                replacement=True, 
+                num_samples=len(train) * args.epochs),
+            num_workers=args.num_workers,
+        )
+    else:
+        return SyntheticData(
+            model=model,
+            device=device,
+            batch_size=args.batch_size,
+            n=1000,
+            fixed_batch=args.fixed_batch,
+        )
+
+
 
 def main():
     from voir.phase import StopProgram
     
     try:
         _main()
-    except StopProgram:
+    finally:
         show_timings(True)
-        raise
     
 def _main():
     parser = argparse.ArgumentParser(description="Torchvision models")
@@ -117,6 +213,13 @@ def _main():
     )
     parser.add_argument(
         "--model", type=str, help="torchvision model name", required=True
+    )
+    parser.add_argument(
+        "--loader", 
+        type=str, 
+        default="dali",
+        choices=["pytorch", "dali"],
+        help="Dataloader backend",
     )
     parser.add_argument(
         "--epochs",
@@ -212,25 +315,7 @@ def _main():
 
     optimizer = torch.optim.SGD(model.parameters(), args.lr)
 
-    if args.data:
-        train = datasets.ImageFolder(os.path.join(args.data, "train"), data_transforms)
-        train_loader = torch.utils.data.DataLoader(
-            train,
-            batch_size=args.batch_size,
-            num_workers=args.num_workers,
-            sampler=torch.utils.data.RandomSampler(
-                train, 
-                replacement=True, 
-                num_samples=len(train) * args.epochs)
-        )
-    else:
-        train_loader = SyntheticData(
-            model=model,
-            device=device,
-            batch_size=args.batch_size,
-            n=1000,
-            fixed_batch=args.fixed_batch,
-        )
+    train_loader = dataloader(args, model, device)
 
     if is_fp16_allowed(args):
         scaler = torch.cuda.amp.GradScaler()
@@ -243,19 +328,18 @@ def _main():
                 gv.where("loss").display()
 
             for epoch in voir.iterate("main", range(args.epochs)):
-                
                 with timeit("epoch") as epoch_timer:
                     model.train()
-                    es = time.time()
-                    
+    
                     if not args.no_stdout:
                         print(f"Begin training epoch {epoch}/{args.epochs}")
                     
                     train_epoch(
                         model, criterion, optimizer, train_loader, device, scaler=scaler
                     )
-                        
-                break
+                
+                if args.loader != "dali":
+                    break
 
 if __name__ == "__main__":
     main()

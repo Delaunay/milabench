@@ -39,6 +39,7 @@ def main(config):
             "CelebA",
             config.mode,
             config.num_workers,
+            epochs=config.num_iters
         )
     if config.dataset in ["RaFD", "Both"]:
         rafd_loader = get_loader(
@@ -51,6 +52,7 @@ def main(config):
             "RaFD",
             config.mode,
             config.num_workers,
+            epochs=config.num_iters
         )
     if config.dataset == "synth":
 
@@ -66,7 +68,13 @@ def main(config):
             repeat=10000,
         )
         synth_loader = DataLoader(
-            synth_dataset, batch_size=config.batch_size, num_workers=config.num_workers
+            synth_dataset, 
+            batch_size=config.batch_size, 
+            num_workers=config.num_workers,
+            sampler=torch.utils.data.RandomSampler(
+                synth_dataset, 
+                replacement=True, 
+                num_samples=len(synth_dataset) * config.num_iters)
         )
 
     # Solver for training and testing StarGAN.

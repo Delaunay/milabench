@@ -27,5 +27,7 @@ slurm-*
 scripts/inventory.yaml
 out.txt
 output/
-voir/
-cantilever/
+dependencies/
+
+benchmarks/gflownet/
+results/

@@ -23,6 +23,7 @@ def retrieve_datetime_from_name(date):
 
 def fetch_runs(folder):
     runs = []
+    date = None
     for run in os.listdir(folder):
         pth = os.path.join(folder, run)
         if not os.path.isdir(pth):
@@ -46,7 +47,7 @@ def fetch_runs(folder):
 def _print_headers(runs, sep):
     # Print Header
     times = [
-        f"{'bench':<20}",
+        f"{'bench':<25}",
         f"{'metric':>15}",
     ]
     dates = [" " * (35 + len(sep))]
@@ -68,6 +69,14 @@ def compare(runs, last, metric, stat):
 
     if last is not None:
         runs = runs[-last:]
+        
+    selected = []
+    for run in runs:
+        if len(run.summary) != 0:
+            selected.append(run)
+    
+    runs = selected    
+    runs = sorted(runs, key=lambda x: x.name)
 
     benches = set()
     for run in runs:
@@ -79,7 +88,7 @@ def compare(runs, last, metric, stat):
 
     for bench in benches:
         line = [
-            f"{bench:<20}",
+            f"{bench:<25}",
             f"{metric:>15}",
         ]
 

@@ -17,12 +17,13 @@ ARCH="cuda"
 PYTHON="3.9"
 BRANCH="master"
 ORIGIN="https://github.com/mila-iqia/milabench.git"
-LOC="$SLURM_TMPDIR"
+LOC="$SLURM_TMPDIR/$SLURM_ARRAY_TASK_ID"
 CONFIG="$LOC/milabench/config/standard.yaml"
 BASE="$LOC/base"
 ENV="./env"
 REMAINING_ARGS=""
 
+mkdir -p $LOC
 
 while getopts ":hm:p:e:a:b:o:c:" opt; do
   case $opt in
@@ -103,6 +104,7 @@ export MILABENCH_CONFIG=$CONFIG
 #
 # Fetch the repo
 #
+cd $LOC
 git clone --single-branch --depth 1 -b $BRANCH $ORIGIN
 python -m pip install -e ./milabench
 
@@ -124,6 +126,9 @@ echo ""
 echo "Run"
 echo "---"
 milabench run     --config $CONFIG --base $BASE $REMAINING_ARGS
+
+cd $BASE
+rsync -avz $BASE/runs $HOME/run_${BRANCH}_cpu8_opt13b
 
 echo "----"
 echo "Done after $SECONDS"

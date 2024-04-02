@@ -4,7 +4,6 @@
 # Intereactive session do not have SLURM_TMPDIR set
 export SLURM_TMPDIR="/Tmp/slurm.$SLURM_JOB_ID.0"
 export ENV="$SLURM_TMPDIR/env"
-export MILABENCH_SOURCE="$HOME/milabench"
 export BASE="$SLURM_TMPDIR/base"
 export ARCH="cuda"
 export PYTHON=3.9
@@ -23,19 +22,31 @@ export MILABENCH_GPU_ARCH=$ARCH
 export MILABENCH_DASH=no 
 export PYTHONUNBUFFERED=1
 export MILABENCH_BASE=$BASE
-export MILABENCH_CONFIG="$MILABENCH_SOURCE/config/standard.yaml"
+export MILABENCH_SOURCE="$HOME/milabench"
 
+cd $SLURM_TMPDIR
+git clone git@github.com:mila-iqia/milabench.git 
+cd milabench
+git checkout master
+export MILABENCH_SOURCE="$SLURM_TMPDIR/milabench"
+
+
+export MILABENCH_CONFIG="$MILABENCH_SOURCE/config/standard.yaml"
 python -m pip install -e $MILABENCH_SOURCE
 
 module load gcc/9.3.0 
 module load cuda/11.8
 
 if [ ! -f "$BASE/install" ]; then
-    milabench install --config $MILABENCH_CONFIG --base $BASE --select resnet50
+    milabench install --config $MILABENCH_CONFIG --base $BASE
 fi
 
 if [ ! -f "$BASE/prepare" ]; then
-    milabench prepare --config $MILABENCH_CONFIG --base $BASE --select resnet50
+    milabench prepare --config $MILABENCH_CONFIG --base $BASE
 fi
 
 exec bash
+
+#  pip install -e dependencies/cantilever
+#  pip install -e dependencies/voir/
+#  pip install -e dependencies/giving/

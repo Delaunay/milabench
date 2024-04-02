@@ -210,4 +210,4 @@ def milabench_remote_run(pack) -> Command:
         return VoidCommand(pack)
 
     argv = sys.argv[2:]
-    return milabench_remote_command(pack, "run", *argv)
+    return milabench_remote_command(pack, "run", *argv, run_for="main")

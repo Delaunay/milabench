@@ -181,6 +181,9 @@ def main():
     validation_split_percentage = config["validation_split_percentage"]
     dataset_name = config["dataset_name"]
     dataset_config_name = config["dataset_config_name"]
+    import pdb;
+    pdb.set_trace()
+    
     raw_datasets = load_dataset(dataset_name, dataset_config_name, revision=config["dataset_rev"])
     if "validation" not in raw_datasets.keys():
         raw_datasets["validation"] = load_dataset(

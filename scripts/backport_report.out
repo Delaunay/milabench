@@ -1,0 +1,1276 @@
+  PYTHON: 3.9
+  branch: v0.0.8
+  origin: https://github.com/mila-iqia/milabench.git
+  config: /Tmp/slurm.4256385.0/milabench/config/standard.yaml
+     env: ./env
+    args: --select opt-1_3b
+Collecting package metadata (current_repodata.json): ...working... done
+Solving environment: ...working... done
+
+
+==> WARNING: A newer version of conda exists. <==
+  current version: 23.5.2
+  latest version: 24.1.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+Or to minimize the number of packages updated during conda update use
+
+     conda install conda=24.1.2
+
+
+
+## Package Plan ##
+
+  environment location: /Tmp/slurm.4256385.0/env
+
+  added / updated specs:
+    - python=3.9
+
+
+The following NEW packages will be INSTALLED:
+
+  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
+  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu 
+  ca-certificates    pkgs/main/linux-64::ca-certificates-2023.12.12-h06a4308_0 
+  ld_impl_linux-64   pkgs/main/linux-64::ld_impl_linux-64-2.38-h1181459_1 
+  libffi             pkgs/main/linux-64::libffi-3.4.4-h6a678d5_0 
+  libgcc-ng          pkgs/main/linux-64::libgcc-ng-11.2.0-h1234567_1 
+  libgomp            pkgs/main/linux-64::libgomp-11.2.0-h1234567_1 
+  libstdcxx-ng       pkgs/main/linux-64::libstdcxx-ng-11.2.0-h1234567_1 
+  ncurses            pkgs/main/linux-64::ncurses-6.4-h6a678d5_0 
+  openssl            pkgs/main/linux-64::openssl-3.0.13-h7f8727e_0 
+  pip                pkgs/main/linux-64::pip-23.3.1-py39h06a4308_0 
+  python             pkgs/main/linux-64::python-3.9.18-h955ad1f_0 
+  readline           pkgs/main/linux-64::readline-8.2-h5eee18b_0 
+  setuptools         pkgs/main/linux-64::setuptools-68.2.2-py39h06a4308_0 
+  sqlite             pkgs/main/linux-64::sqlite-3.41.2-h5eee18b_0 
+  tk                 pkgs/main/linux-64::tk-8.6.12-h1ccaba5_0 
+  tzdata             pkgs/main/noarch::tzdata-2024a-h04d1e81_0 
+  wheel              pkgs/main/linux-64::wheel-0.41.2-py39h06a4308_0 
+  xz                 pkgs/main/linux-64::xz-5.4.6-h5eee18b_0 
+  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0 
+
+
+
+Downloading and Extracting Packages
+
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+#
+# To activate this environment, use
+#
+#     $ conda activate /Tmp/slurm.4256385.0/env
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+
+Cloning into 'milabench'...
+Note: switching to '2dd2b141d1974e26e042c26d3c57b753c73fffd0'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+Obtaining file:///Tmp/slurm.4256385.0/milabench
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Checking if build backend supports build_editable: started
+  Checking if build backend supports build_editable: finished with status 'done'
+  Getting requirements to build editable: started
+  Getting requirements to build editable: finished with status 'done'
+  Preparing editable metadata (pyproject.toml): started
+  Preparing editable metadata (pyproject.toml): finished with status 'done'
+Requirement already satisfied: GitPython<4.0.0,>=3.1.24 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (3.1.41)
+Requirement already satisfied: PyYAML<7.0,>=6.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (6.0.1)
+Requirement already satisfied: blessed<2.0.0,>=1.19.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (1.20.0)
+Requirement already satisfied: coleo<0.4.0,>=0.3.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (0.3.3)
+Requirement already satisfied: cp-template<0.4.0,>=0.3.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (0.3.0)
+Requirement already satisfied: giving<0.5.0,>=0.4.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (0.4.2)
+Requirement already satisfied: hrepr<0.5.0,>=0.4.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (0.4.1)
+Requirement already satisfied: nox<2022.0.0,>=2021.10.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (2021.10.1)
+Requirement already satisfied: numpy>=1.23.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (1.26.4)
+Requirement already satisfied: omegaconf<3.0.0,>=2.3.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (2.3.0)
+Requirement already satisfied: ovld<0.4.0,>=0.3.2 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (0.3.2)
+Requirement already satisfied: pandas<2.0.0,>=1.4.2 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (1.5.3)
+Requirement already satisfied: pathspec<0.10.0,>=0.9.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (0.9.0)
+Requirement already satisfied: pip-tools<7.0.0,>=6.12.3 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (6.14.0)
+Requirement already satisfied: ptera<2.0.0,>=1.2.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (1.4.1)
+Requirement already satisfied: pynvml<12.0.0,>=11.4.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (11.5.0)
+Requirement already satisfied: requests<3.0.0,>=2.26.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (2.31.0)
+Requirement already satisfied: rich<14.0.0,>=13.3.2 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (13.7.0)
+Requirement already satisfied: tqdm<5.0.0,>=4.64.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from milabench==0.1.0) (4.66.2)
+Collecting voir<0.3.0,>=0.2.9 (from milabench==0.1.0)
+  Downloading voir-0.2.12-py3-none-any.whl.metadata (791 bytes)
+Requirement already satisfied: wcwidth>=0.1.4 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from blessed<2.0.0,>=1.19.1->milabench==0.1.0) (0.2.13)
+Requirement already satisfied: six>=1.9.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from blessed<2.0.0,>=1.19.1->milabench==0.1.0) (1.16.0)
+Requirement already satisfied: pystache<0.7.0,>=0.6.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from cp-template<0.4.0,>=0.3.0->milabench==0.1.0) (0.6.5)
+Requirement already satisfied: gitdb<5,>=4.0.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from GitPython<4.0.0,>=3.1.24->milabench==0.1.0) (4.0.11)
+Requirement already satisfied: asttokens<3.0.0,>=2.2.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from giving<0.5.0,>=0.4.0->milabench==0.1.0) (2.4.1)
+Requirement already satisfied: reactivex<5.0.0,>=4.0.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from giving<0.5.0,>=0.4.0->milabench==0.1.0) (4.0.4)
+Requirement already satisfied: varname<0.11.0,>=0.10.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from giving<0.5.0,>=0.4.0->milabench==0.1.0) (0.10.0)
+Requirement already satisfied: argcomplete<2.0,>=1.9.4 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from nox<2022.0.0,>=2021.10.1->milabench==0.1.0) (1.12.3)
+Requirement already satisfied: colorlog<7.0.0,>=2.6.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from nox<2022.0.0,>=2021.10.1->milabench==0.1.0) (6.8.2)
+Requirement already satisfied: packaging>=20.9 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from nox<2022.0.0,>=2021.10.1->milabench==0.1.0) (23.2)
+Requirement already satisfied: py<2.0.0,>=1.4.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from nox<2022.0.0,>=2021.10.1->milabench==0.1.0) (1.11.0)
+Collecting virtualenv>=14.0.0 (from nox<2022.0.0,>=2021.10.1->milabench==0.1.0)
+  Downloading virtualenv-20.25.1-py3-none-any.whl.metadata (4.4 kB)
+Requirement already satisfied: antlr4-python3-runtime==4.9.* in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from omegaconf<3.0.0,>=2.3.0->milabench==0.1.0) (4.9.3)
+Requirement already satisfied: python-dateutil>=2.8.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pandas<2.0.0,>=1.4.2->milabench==0.1.0) (2.8.2)
+Requirement already satisfied: pytz>=2020.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pandas<2.0.0,>=1.4.2->milabench==0.1.0) (2024.1)
+Requirement already satisfied: build in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (1.0.3)
+Requirement already satisfied: click>=8 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (8.1.7)
+Requirement already satisfied: pip>=22.2 in ./env/lib/python3.9/site-packages (from pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (23.3.1)
+Requirement already satisfied: setuptools in ./env/lib/python3.9/site-packages (from pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (68.2.2)
+Requirement already satisfied: wheel in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (0.42.0)
+Requirement already satisfied: tomli in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (2.0.1)
+Requirement already satisfied: codefind<0.2.0,>=0.1.2 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from ptera<2.0.0,>=1.2.0->milabench==0.1.0) (0.1.3)
+Requirement already satisfied: charset-normalizer<4,>=2 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from requests<3.0.0,>=2.26.0->milabench==0.1.0) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from requests<3.0.0,>=2.26.0->milabench==0.1.0) (3.6)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from requests<3.0.0,>=2.26.0->milabench==0.1.0) (2.2.0)
+Requirement already satisfied: certifi>=2017.4.17 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from requests<3.0.0,>=2.26.0->milabench==0.1.0) (2024.2.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from rich<14.0.0,>=13.3.2->milabench==0.1.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from rich<14.0.0,>=13.3.2->milabench==0.1.0) (2.17.2)
+Requirement already satisfied: smmap<6,>=3.0.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from gitdb<5,>=4.0.1->GitPython<4.0.0,>=3.1.24->milabench==0.1.0) (5.0.1)
+Requirement already satisfied: mdurl~=0.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from markdown-it-py>=2.2.0->rich<14.0.0,>=13.3.2->milabench==0.1.0) (0.1.2)
+Requirement already satisfied: importlib-metadata>=4.6 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from pystache<0.7.0,>=0.6.0->cp-template<0.4.0,>=0.3.0->milabench==0.1.0) (7.0.1)
+Requirement already satisfied: typing-extensions<5.0.0,>=4.1.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from reactivex<5.0.0,>=4.0.0->giving<0.5.0,>=0.4.0->milabench==0.1.0) (4.9.0)
+Requirement already satisfied: executing<2.0,>=1.1 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from varname<0.11.0,>=0.10.0->giving<0.5.0,>=0.4.0->milabench==0.1.0) (1.2.0)
+Collecting distlib<1,>=0.3.7 (from virtualenv>=14.0.0->nox<2022.0.0,>=2021.10.1->milabench==0.1.0)
+  Downloading distlib-0.3.8-py2.py3-none-any.whl.metadata (5.1 kB)
+Collecting filelock<4,>=3.12.2 (from virtualenv>=14.0.0->nox<2022.0.0,>=2021.10.1->milabench==0.1.0)
+  Downloading filelock-3.13.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting platformdirs<5,>=3.9.1 (from virtualenv>=14.0.0->nox<2022.0.0,>=2021.10.1->milabench==0.1.0)
+  Downloading platformdirs-4.2.0-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: pyproject_hooks in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from build->pip-tools<7.0.0,>=6.12.3->milabench==0.1.0) (1.0.0)
+Requirement already satisfied: zipp>=0.5 in /home/mila/d/delaunap/.local/lib/python3.9/site-packages (from importlib-metadata>=4.6->pystache<0.7.0,>=0.6.0->cp-template<0.4.0,>=0.3.0->milabench==0.1.0) (3.17.0)
+Downloading voir-0.2.12-py3-none-any.whl (35 kB)
+Downloading virtualenv-20.25.1-py3-none-any.whl (3.8 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 51.7 MB/s eta 0:00:00
+Downloading distlib-0.3.8-py2.py3-none-any.whl (468 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 468.9/468.9 kB 91.8 MB/s eta 0:00:00
+Downloading filelock-3.13.1-py3-none-any.whl (11 kB)
+Downloading platformdirs-4.2.0-py3-none-any.whl (17 kB)
+Building wheels for collected packages: milabench
+  Building editable for milabench (pyproject.toml): started
+  Building editable for milabench (pyproject.toml): finished with status 'done'
+  Created wheel for milabench: filename=milabench-0.1.0-py3-none-any.whl size=2404 sha256=612c7bc717a80d16402c372944d8405ef0684fe3628d1767d221b2e879cfbb9f
+  Stored in directory: /tmp/pip-ephem-wheel-cache-77y73fk8/wheels/2a/9e/91/9c65eb073799ea059d49cb67edb2698b556e79981f07f81737
+Successfully built milabench
+Installing collected packages: distlib, platformdirs, filelock, virtualenv, voir, milabench
+Successfully installed distlib-0.3.8 filelock-3.13.1 milabench-0.1.0 platformdirs-4.2.0 virtualenv-20.25.1 voir-0.2.12
+[=== Module cudatoolkit/11.8 loaded ===]
+
+Install
+-------
+opt-1_3b [start] pip install -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt [at 2024-02-28 11:27:10.083735]
+opt-1_3b [stdout] Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu118
+opt-1_3b [stdout] Collecting accelerate==0.18.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 9))
+opt-1_3b [stdout]   Downloading accelerate-0.18.0-py3-none-any.whl.metadata (16 kB)
+opt-1_3b [stdout] Collecting aiohttp==3.8.4 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 11))
+opt-1_3b [stdout]   Downloading aiohttp-3.8.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (7.4 kB)
+opt-1_3b [stdout] Collecting aiosignal==1.3.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 16))
+opt-1_3b [stdout]   Downloading aiosignal-1.3.1-py3-none-any.whl.metadata (4.0 kB)
+opt-1_3b [stdout] Collecting antlr4-python3-runtime==4.9.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 20))
+opt-1_3b [stdout]   Downloading antlr4-python3-runtime-4.9.3.tar.gz (117 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.0/117.0 kB 7.2 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout]   Preparing metadata (setup.py): started
+opt-1_3b [stdout]   Preparing metadata (setup.py): finished with status 'done'
+opt-1_3b [stdout] Collecting asttokens==2.2.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 24))
+opt-1_3b [stdout]   Downloading asttokens-2.2.1-py2.py3-none-any.whl.metadata (4.8 kB)
+opt-1_3b [stdout] Collecting async-timeout==4.0.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 28))
+opt-1_3b [stdout]   Downloading async_timeout-4.0.2-py3-none-any.whl.metadata (4.2 kB)
+opt-1_3b [stdout] Collecting attrs==22.2.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 32))
+opt-1_3b [stdout]   Downloading attrs-22.2.0-py3-none-any.whl.metadata (13 kB)
+opt-1_3b [stdout] Collecting certifi==2022.12.7 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 36))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/certifi-2022.12.7-py3-none-any.whl (155 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.3/155.3 kB 6.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting charset-normalizer==3.1.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 40))
+opt-1_3b [stdout]   Downloading charset_normalizer-3.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (30 kB)
+opt-1_3b [stdout] Collecting cmake==3.26.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 45))
+opt-1_3b [stdout]   Downloading cmake-3.26.1-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (6.8 kB)
+opt-1_3b [stdout] Collecting codefind==0.1.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 49))
+opt-1_3b [stdout]   Downloading codefind-0.1.3-py3-none-any.whl.metadata (397 bytes)
+opt-1_3b [stdout] Collecting datasets==2.11.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 53))
+opt-1_3b [stdout]   Downloading datasets-2.11.0-py3-none-any.whl.metadata (20 kB)
+opt-1_3b [stdout] Collecting deepspeed==0.8.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 57))
+opt-1_3b [stdout]   Downloading deepspeed-0.8.3.tar.gz (765 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 765.4/765.4 kB 38.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout]   Preparing metadata (setup.py): started
+opt-1_3b [stdout]   Preparing metadata (setup.py): finished with status 'done'
+opt-1_3b [stdout] Collecting dill==0.3.6 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 59))
+opt-1_3b [stdout]   Downloading dill-0.3.6-py3-none-any.whl.metadata (9.8 kB)
+opt-1_3b [stdout] Collecting evaluate==0.4.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 65))
+opt-1_3b [stdout]   Downloading evaluate-0.4.0-py3-none-any.whl.metadata (9.4 kB)
+opt-1_3b [stdout] Collecting executing==1.2.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 67))
+opt-1_3b [stdout]   Downloading executing-1.2.0-py2.py3-none-any.whl.metadata (8.9 kB)
+opt-1_3b [stdout] Collecting filelock==3.10.7 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 71))
+opt-1_3b [stdout]   Downloading filelock-3.10.7-py3-none-any.whl.metadata (2.5 kB)
+opt-1_3b [stdout] Collecting frozenlist==1.3.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 78))
+opt-1_3b [stdout]   Downloading frozenlist-1.3.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.7 kB)
+opt-1_3b [stdout] Collecting fsspec==2023.3.0 (from fsspec[http]==2023.3.0->-r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 83))
+opt-1_3b [stdout]   Downloading fsspec-2023.3.0-py3-none-any.whl.metadata (5.5 kB)
+opt-1_3b [stdout] Collecting giving==0.4.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 88))
+opt-1_3b [stdout]   Downloading giving-0.4.2-py3-none-any.whl.metadata (15 kB)
+opt-1_3b [stdout] Collecting hjson==3.1.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 93))
+opt-1_3b [stdout]   Downloading hjson-3.1.0-py3-none-any.whl.metadata (2.6 kB)
+opt-1_3b [stdout] Collecting huggingface-hub==0.13.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 97))
+opt-1_3b [stdout]   Downloading huggingface_hub-0.13.3-py3-none-any.whl.metadata (7.5 kB)
+opt-1_3b [stdout] Collecting idna==3.4 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 103))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/idna-3.4-py3-none-any.whl (61 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 61.5/61.5 kB 15.9 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting jinja2==3.1.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 108))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/Jinja2-3.1.2-py3-none-any.whl (133 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 133.1/133.1 kB 21.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting lit==16.0.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 112))
+opt-1_3b [stdout]   Downloading lit-16.0.0.tar.gz (144 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.0/145.0 kB 53.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout]   Preparing metadata (setup.py): started
+opt-1_3b [stdout]   Preparing metadata (setup.py): finished with status 'done'
+opt-1_3b [stdout] Collecting markdown-it-py==2.2.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 116))
+opt-1_3b [stdout]   Downloading markdown_it_py-2.2.0-py3-none-any.whl.metadata (6.8 kB)
+opt-1_3b [stdout] Collecting markupsafe==2.1.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 120))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/MarkupSafe-2.1.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (25 kB)
+opt-1_3b [stdout] Collecting mdurl==0.1.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 124))
+opt-1_3b [stdout]   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+opt-1_3b [stdout] Collecting mpmath==1.3.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 128))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/mpmath-1.3.0-py3-none-any.whl (536 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 29.8 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting multidict==6.0.4 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 132))
+opt-1_3b [stdout]   Downloading multidict-6.0.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.1 kB)
+opt-1_3b [stdout] Collecting multiprocess==0.70.14 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 137))
+opt-1_3b [stdout]   Downloading multiprocess-0.70.14-py39-none-any.whl.metadata (6.6 kB)
+opt-1_3b [stdout] Collecting networkx==3.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 142))
+opt-1_3b [stdout]   Downloading networkx-3.1-py3-none-any.whl.metadata (5.3 kB)
+opt-1_3b [stdout] Collecting ninja==1.11.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 146))
+opt-1_3b [stdout]   Downloading ninja-1.11.1-py2.py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (5.3 kB)
+opt-1_3b [stdout] Collecting numpy==1.24.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 150))
+opt-1_3b [stdout]   Downloading numpy-1.24.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (5.6 kB)
+opt-1_3b [stdout] Collecting omegaconf==2.3.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 161))
+opt-1_3b [stdout]   Downloading omegaconf-2.3.0-py3-none-any.whl.metadata (3.9 kB)
+opt-1_3b [stdout] Collecting ovld==0.3.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 165))
+opt-1_3b [stdout]   Downloading ovld-0.3.2-py3-none-any.whl.metadata (9.4 kB)
+opt-1_3b [stdout] Collecting packaging==23.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 169))
+opt-1_3b [stdout]   Downloading packaging-23.0-py3-none-any.whl.metadata (3.1 kB)
+opt-1_3b [stdout] Collecting pandas==2.0.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 178))
+opt-1_3b [stdout]   Downloading pandas-2.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+opt-1_3b [stdout] Collecting pillow==9.5.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 183))
+opt-1_3b [stdout]   Downloading Pillow-9.5.0-cp39-cp39-manylinux_2_28_x86_64.whl.metadata (9.5 kB)
+opt-1_3b [stdout] Collecting psutil==5.9.4 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 187))
+opt-1_3b [stdout]   Downloading psutil-5.9.4-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (21 kB)
+opt-1_3b [stdout] Collecting ptera==1.4.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 192))
+opt-1_3b [stdout]   Downloading ptera-1.4.1-py3-none-any.whl.metadata (10 kB)
+opt-1_3b [stdout] Collecting py-cpuinfo==9.0.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 196))
+opt-1_3b [stdout]   Downloading py_cpuinfo-9.0.0-py3-none-any.whl.metadata (794 bytes)
+opt-1_3b [stdout] Collecting pyarrow==11.0.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 200))
+opt-1_3b [stdout]   Downloading pyarrow-11.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.0 kB)
+opt-1_3b [stdout] Collecting pydantic==1.10.7 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 204))
+opt-1_3b [stdout]   Downloading pydantic-1.10.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (145 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.4/145.4 kB 47.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting pygments==2.14.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 208))
+opt-1_3b [stdout]   Downloading Pygments-2.14.0-py3-none-any.whl.metadata (1.6 kB)
+opt-1_3b [stdout] Collecting pynvml==11.5.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 212))
+opt-1_3b [stdout]   Downloading pynvml-11.5.0-py3-none-any.whl.metadata (7.8 kB)
+opt-1_3b [stdout] Collecting python-dateutil==2.8.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 216))
+opt-1_3b [stdout]   Downloading python_dateutil-2.8.2-py2.py3-none-any.whl.metadata (8.2 kB)
+opt-1_3b [stdout] Collecting pytz==2023.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 220))
+opt-1_3b [stdout]   Downloading pytz-2023.3-py2.py3-none-any.whl.metadata (22 kB)
+opt-1_3b [stdout] Collecting pyyaml==6.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 224))
+opt-1_3b [stdout]   Downloading PyYAML-6.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl.metadata (2.0 kB)
+opt-1_3b [stdout] Collecting reactivex==4.0.4 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 232))
+opt-1_3b [stdout]   Downloading reactivex-4.0.4-py3-none-any.whl.metadata (5.5 kB)
+opt-1_3b [stdout] Collecting regex==2023.3.23 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 236))
+opt-1_3b [stdout]   Downloading regex-2023.3.23-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (40 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 40.6/40.6 kB 22.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting requests==2.28.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 240))
+opt-1_3b [stdout]   Downloading requests-2.28.2-py3-none-any.whl.metadata (4.6 kB)
+opt-1_3b [stdout] Collecting responses==0.18.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 250))
+opt-1_3b [stdout]   Downloading responses-0.18.0-py3-none-any.whl.metadata (29 kB)
+opt-1_3b [stdout] Collecting rich==13.3.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 255))
+opt-1_3b [stdout]   Downloading rich-13.3.3-py3-none-any.whl.metadata (18 kB)
+opt-1_3b [stdout] Collecting six==1.16.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 259))
+opt-1_3b [stdout]   Downloading six-1.16.0-py2.py3-none-any.whl.metadata (1.8 kB)
+opt-1_3b [stdout] Collecting sympy==1.11.1 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 264))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/sympy-1.11.1-py3-none-any.whl (6.5 MB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 31.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting tokenizers==0.13.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 268))
+opt-1_3b [stdout]   Downloading tokenizers-0.13.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.7 kB)
+opt-1_3b [stdout] Collecting torch==2.0.0+cu118 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 272))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/cu118/torch-2.0.0%2Bcu118-cp39-cp39-linux_x86_64.whl (2267.3 MB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 GB 3.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting torchaudio==2.0.1+cu118 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 280))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/cu118/torchaudio-2.0.1%2Bcu118-cp39-cp39-linux_x86_64.whl (4.4 MB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.4/4.4 MB 11.9 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting torchvision==0.15.1+cu118 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 282))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/cu118/torchvision-0.15.1%2Bcu118-cp39-cp39-linux_x86_64.whl (6.1 MB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.1/6.1 MB 38.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting tqdm==4.65.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 284))
+opt-1_3b [stdout]   Downloading tqdm-4.65.0-py3-none-any.whl.metadata (56 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.0/57.0 kB 36.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting transformers==4.27.4 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 292))
+opt-1_3b [stdout]   Downloading transformers-4.27.4-py3-none-any.whl.metadata (106 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 106.7/106.7 kB 36.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting triton==2.0.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 294))
+opt-1_3b [stdout]   Downloading https://download.pytorch.org/whl/triton-2.0.0-1-cp39-cp39-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (63.3 MB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.3/63.3 MB 60.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting typing-extensions==4.5.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 298))
+opt-1_3b [stdout]   Downloading typing_extensions-4.5.0-py3-none-any.whl.metadata (8.5 kB)
+opt-1_3b [stdout] Collecting tzdata==2023.3 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 305))
+opt-1_3b [stdout]   Downloading tzdata-2023.3-py2.py3-none-any.whl.metadata (1.4 kB)
+opt-1_3b [stdout] Collecting urllib3==1.26.15 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 309))
+opt-1_3b [stdout]   Downloading urllib3-1.26.15-py2.py3-none-any.whl.metadata (48 kB)
+opt-1_3b [stdout]      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.1/48.1 kB 30.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Collecting varname==0.10.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 314))
+opt-1_3b [stdout]   Downloading varname-0.10.0-py3-none-any.whl.metadata (11 kB)
+opt-1_3b [stdout] Collecting voir==0.2.12 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 318))
+opt-1_3b [stdout]   Using cached voir-0.2.12-py3-none-any.whl.metadata (791 bytes)
+opt-1_3b [stdout] Collecting xxhash==3.2.0 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 320))
+opt-1_3b [stdout]   Downloading xxhash-3.2.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+opt-1_3b [stdout] Collecting yarl==1.8.2 (from -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt (line 325))
+opt-1_3b [stdout]   Downloading yarl-1.8.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (21 kB)
+opt-1_3b [stdout] Downloading accelerate-0.18.0-py3-none-any.whl (215 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 215.3/215.3 kB 83.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading aiohttp-3.8.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.0 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 98.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading aiosignal-1.3.1-py3-none-any.whl (7.6 kB)
+opt-1_3b [stdout] Downloading asttokens-2.2.1-py2.py3-none-any.whl (26 kB)
+opt-1_3b [stdout] Downloading async_timeout-4.0.2-py3-none-any.whl (5.8 kB)
+opt-1_3b [stdout] Downloading attrs-22.2.0-py3-none-any.whl (60 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.0/60.0 kB 1.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading charset_normalizer-3.1.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (199 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.2/199.2 kB 92.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading cmake-3.26.1-py2.py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (24.0 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 24.0/24.0 MB 20.9 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading codefind-0.1.3-py3-none-any.whl (3.1 kB)
+opt-1_3b [stdout] Downloading datasets-2.11.0-py3-none-any.whl (468 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 468.7/468.7 kB 106.8 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading dill-0.3.6-py3-none-any.whl (110 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 110.5/110.5 kB 66.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading evaluate-0.4.0-py3-none-any.whl (81 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 81.4/81.4 kB 50.9 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading executing-1.2.0-py2.py3-none-any.whl (24 kB)
+opt-1_3b [stdout] Downloading filelock-3.10.7-py3-none-any.whl (10 kB)
+opt-1_3b [stdout] Downloading frozenlist-1.3.3-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (158 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 158.8/158.8 kB 81.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading fsspec-2023.3.0-py3-none-any.whl (145 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 145.4/145.4 kB 77.3 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading giving-0.4.2-py3-none-any.whl (28 kB)
+opt-1_3b [stdout] Downloading hjson-3.1.0-py3-none-any.whl (54 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.0/54.0 kB 34.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading huggingface_hub-0.13.3-py3-none-any.whl (199 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.8/199.8 kB 94.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading markdown_it_py-2.2.0-py3-none-any.whl (84 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 84.5/84.5 kB 52.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+opt-1_3b [stdout] Downloading multidict-6.0.4-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (114 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 114.2/114.2 kB 52.5 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading multiprocess-0.70.14-py39-none-any.whl (132 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 132.9/132.9 kB 73.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading networkx-3.1-py3-none-any.whl (2.1 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 106.5 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading ninja-1.11.1-py2.py3-none-manylinux_2_12_x86_64.manylinux2010_x86_64.whl (145 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 146.0/146.0 kB 77.8 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading numpy-1.24.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.3 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.3/17.3 MB 91.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading omegaconf-2.3.0-py3-none-any.whl (79 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 79.5/79.5 kB 48.8 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading ovld-0.3.2-py3-none-any.whl (16 kB)
+opt-1_3b [stdout] Downloading packaging-23.0-py3-none-any.whl (42 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 kB 27.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading pandas-2.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 90.9 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading Pillow-9.5.0-cp39-cp39-manylinux_2_28_x86_64.whl (3.4 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.4/3.4 MB 71.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading psutil-5.9.4-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (280 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 280.2/280.2 kB 37.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading ptera-1.4.1-py3-none-any.whl (39 kB)
+opt-1_3b [stdout] Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+opt-1_3b [stdout] Downloading pyarrow-11.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (34.9 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 34.9/34.9 MB 69.4 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading pydantic-1.10.7-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 75.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading Pygments-2.14.0-py3-none-any.whl (1.1 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 97.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading pynvml-11.5.0-py3-none-any.whl (53 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.1/53.1 kB 30.5 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.7/247.7 kB 80.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading pytz-2023.3-py2.py3-none-any.whl (502 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 502.3/502.3 kB 96.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading PyYAML-6.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl (661 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 661.8/661.8 kB 96.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading reactivex-4.0.4-py3-none-any.whl (217 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 217.8/217.8 kB 73.3 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading regex-2023.3.23-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (768 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 769.0/769.0 kB 97.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading requests-2.28.2-py3-none-any.whl (62 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.8/62.8 kB 35.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading responses-0.18.0-py3-none-any.whl (38 kB)
+opt-1_3b [stdout] Downloading rich-13.3.3-py3-none-any.whl (238 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 238.7/238.7 kB 80.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+opt-1_3b [stdout] Downloading tokenizers-0.13.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (7.6 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.6/7.6 MB 34.1 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading tqdm-4.65.0-py3-none-any.whl (77 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 77.1/77.1 kB 41.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading transformers-4.27.4-py3-none-any.whl (6.8 MB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.8/6.8 MB 97.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading typing_extensions-4.5.0-py3-none-any.whl (27 kB)
+opt-1_3b [stdout] Downloading tzdata-2023.3-py2.py3-none-any.whl (341 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 341.8/341.8 kB 91.0 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading urllib3-1.26.15-py2.py3-none-any.whl (140 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 140.9/140.9 kB 62.6 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading varname-0.10.0-py3-none-any.whl (22 kB)
+opt-1_3b [stdout] Using cached voir-0.2.12-py3-none-any.whl (35 kB)
+opt-1_3b [stdout] Downloading xxhash-3.2.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (212 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 212.2/212.2 kB 75.7 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Downloading yarl-1.8.2-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (264 kB)
+opt-1_3b [stdout]    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 264.6/264.6 kB 84.2 MB/s eta 0:00:00
+opt-1_3b [stdout] 
+opt-1_3b [stdout] Building wheels for collected packages: antlr4-python3-runtime, deepspeed, lit
+opt-1_3b [stdout]   Building wheel for antlr4-python3-runtime (setup.py): started
+opt-1_3b [stdout]   Building wheel for antlr4-python3-runtime (setup.py): finished with status 'done'
+opt-1_3b [stdout]   Created wheel for antlr4-python3-runtime: filename=antlr4_python3_runtime-4.9.3-py3-none-any.whl size=144554 sha256=1e3426333efa6575e891eedd5494161c3548cca6a99747c26806f9504ede8459
+opt-1_3b [stdout]   Stored in directory: /Tmp/slurm.4256385.0/base/cache/pip/wheels/23/cf/80/f3efa822e6ab23277902ee9165fe772eeb1dfb8014f359020a
+opt-1_3b [stdout]   Building wheel for deepspeed (setup.py): started
+opt-1_3b [stdout]   Building wheel for deepspeed (setup.py): finished with status 'done'
+opt-1_3b [stdout]   Created wheel for deepspeed: filename=deepspeed-0.8.3-py3-none-any.whl size=776357 sha256=e2516e66bc15dec56eae1cde284c39bb8d77eebd944b9aa5c2e946229611c3a3
+opt-1_3b [stdout]   Stored in directory: /Tmp/slurm.4256385.0/base/cache/pip/wheels/f8/ea/8f/0768328ba436ed66f602d8d3b809624448c9eb627434176d04
+opt-1_3b [stdout]   Building wheel for lit (setup.py): started
+opt-1_3b [stdout]   Building wheel for lit (setup.py): finished with status 'done'
+opt-1_3b [stdout]   Created wheel for lit: filename=lit-16.0.0-py3-none-any.whl size=93585 sha256=2bc13d6971f18aaf500c5bbb88e46c2b07530d9a662d4399254a41667dd640cd
+opt-1_3b [stdout]   Stored in directory: /Tmp/slurm.4256385.0/base/cache/pip/wheels/c7/ee/80/1520ca86c3557f70e5504b802072f7fc3b0e2147f376b133ed
+opt-1_3b [stdout] Successfully built antlr4-python3-runtime deepspeed lit
+opt-1_3b [stdout] Installing collected packages: tokenizers, pytz, py-cpuinfo, ninja, mpmath, lit, hjson, executing, cmake, antlr4-python3-runtime, xxhash, varname, urllib3, tzdata, typing-extensions, tqdm, sympy, six, regex, pyyaml, pynvml, pygments, psutil, pillow, packaging, ovld, numpy, networkx, multidict, mdurl, markupsafe, idna, fsspec, frozenlist, filelock, dill, codefind, charset-normalizer, certifi, attrs, async-timeout, yarl, requests, reactivex, python-dateutil, pydantic, pyarrow, omegaconf, multiprocess, markdown-it-py, jinja2, asttokens, aiosignal, rich, responses, pandas, huggingface-hub, giving, aiohttp, transformers, ptera, voir, datasets, evaluate, triton, torch, torchvision, torchaudio, deepspeed, accelerate
+opt-1_3b [stdout] Successfully installed accelerate-0.18.0 aiohttp-3.8.4 aiosignal-1.3.1 antlr4-python3-runtime-4.9.3 asttokens-2.2.1 async-timeout-4.0.2 attrs-22.2.0 certifi-2022.12.7 charset-normalizer-3.1.0 cmake-3.26.1 codefind-0.1.3 datasets-2.11.0 deepspeed-0.8.3 dill-0.3.6 evaluate-0.4.0 executing-1.2.0 filelock-3.10.7 frozenlist-1.3.3 fsspec-2023.3.0 giving-0.4.2 hjson-3.1.0 huggingface-hub-0.13.3 idna-3.4 jinja2-3.1.2 lit-16.0.0 markdown-it-py-2.2.0 markupsafe-2.1.2 mdurl-0.1.2 mpmath-1.3.0 multidict-6.0.4 multiprocess-0.70.14 networkx-3.1 ninja-1.11.1 numpy-1.24.2 omegaconf-2.3.0 ovld-0.3.2 packaging-23.0 pandas-2.0.0 pillow-9.5.0 psutil-5.9.4 ptera-1.4.1 py-cpuinfo-9.0.0 pyarrow-11.0.0 pydantic-1.10.7 pygments-2.14.0 pynvml-11.5.0 python-dateutil-2.8.2 pytz-2023.3 pyyaml-6.0 reactivex-4.0.4 regex-2023.3.23 requests-2.28.2 responses-0.18.0 rich-13.3.3 six-1.16.0 sympy-1.11.1 tokenizers-0.13.2 torch-2.0.0+cu118 torchaudio-2.0.1+cu118 torchvision-0.15.1+cu118 tqdm-4.65.0 transformers-4.27.4 triton-2.0.0 typing-extensions-4.5.0 tzdata-2023.3 urllib3-1.26.15 varname-0.10.0 voir-0.2.12 xxhash-3.2.0 yarl-1.8.2
+opt-1_3b [end] pip install -r /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/requirements.cuda.txt [at 2024-02-28 11:28:40.536021]
+[DONE] Reports directory: /Tmp/slurm.4256385.0/base/runs/install.2024-02-28_11:27:09.005323
+
+Prepare
+-------
+opt-1_3b [start] accelerate launch --mixed_precision=fp16 --num_machines=1 --dynamo_backend=no --num_processes=1 --num_cpu_threads_per_process=8 /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py [at 2024-02-28 11:28:42.039085]
+opt-1_3b [stdout] [02/28/24 11:28:45] INFO     [0/1] __main__ - Distributed          logging.py:47
+opt-1_3b [stdout]                              environment: NO
+opt-1_3b [stdout]                              Num processes: 1
+opt-1_3b [stdout]                              Process index: 0
+opt-1_3b [stdout]                              Local process index: 0
+opt-1_3b [stdout]                              Device: cuda
+opt-1_3b [stdout] 
+opt-1_3b [stdout]                              Mixed precision type: fp16
+opt-1_3b [stdout] 
+opt-1_3b [stderr] Downloading builder script:   0%|          | 0.00/8.48k [00:00<?, ?B/s]
+opt-1_3b [stderr] Downloading builder script: 100%|██████████| 8.48k/8.48k [00:00<00:00, 17.1MB/s]
+opt-1_3b [stderr] Downloading metadata:   0%|          | 0.00/6.84k [00:00<?, ?B/s]
+opt-1_3b [stderr] Downloading metadata: 100%|██████████| 6.84k/6.84k [00:00<00:00, 10.7MB/s]
+opt-1_3b [stderr] Downloading readme:   0%|          | 0.00/9.62k [00:00<?, ?B/s]
+opt-1_3b [stderr] Downloading readme: 100%|██████████| 9.62k/9.62k [00:00<00:00, 16.6MB/s]
+opt-1_3b [stdout] Downloading and preparing dataset wikitext/wikitext-103-v1 to /Tmp/slurm.4256385.0/base/cache/wikitext/wikitext-103-v1/1.0.0/a241db52902eaf2c6aa732210bead40c090019a499ceb13bcbfa3f8ab646a126...
+opt-1_3b [stderr] Downloading data: 0.00B [00:00, ?B/s]
+opt-1_3b [stderr] Downloading data: 243B [00:00, 521kB/s]
+opt-1_3b [stderr] Generating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]
+opt-1_3b [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b [stderr] │ ilder.py:1610 in _prepare_split_single                                       │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   1607 │   │   │   )                                                         │
+opt-1_3b [stderr] │   1608 │   │   │   try:                                                      │
+opt-1_3b [stderr] │   1609 │   │   │   │   _time = time.time()                                   │
+opt-1_3b [stderr] │ ❱ 1610 │   │   │   │   for key, record in generator:                         │
+opt-1_3b [stderr] │   1611 │   │   │   │   │   if max_shard_size is not None and writer._num_byt │
+opt-1_3b [stderr] │   1612 │   │   │   │   │   │   num_examples, num_bytes = writer.finalize()   │
+opt-1_3b [stderr] │   1613 │   │   │   │   │   │   writer.close()                                │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/cache/modules/datasets_modules/datasets/wikitext/a │
+opt-1_3b [stderr] │ 241db52902eaf2c6aa732210bead40c090019a499ceb13bcbfa3f8ab646a126/wikitext.py: │
+opt-1_3b [stderr] │ 187 in _generate_examples                                                    │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   184 │   │                                                                  │
+opt-1_3b [stderr] │   185 │   │   """Yields examples."""                                         │
+opt-1_3b [stderr] │   186 │   │   # TODO(wikitext): Yields (key, example) tuples from the datase │
+opt-1_3b [stderr] │ ❱ 187 │   │   with open(data_file, encoding="utf-8") as f:                   │
+opt-1_3b [stderr] │   188 │   │   │   for idx, row in enumerate(f):                              │
+opt-1_3b [stderr] │   189 │   │   │   │   if row.strip():                                        │
+opt-1_3b [stderr] │   190 │   │   │   │   │   yield idx, {"text": row}                           │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/st │
+opt-1_3b [stderr] │ reaming.py:71 in wrapper                                                     │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │    68 │   def wrap_auth(function):                                           │
+opt-1_3b [stderr] │    69 │   │   @wraps(function)                                               │
+opt-1_3b [stderr] │    70 │   │   def wrapper(*args, **kwargs):                                  │
+opt-1_3b [stderr] │ ❱  71 │   │   │   return function(*args, use_auth_token=use_auth_token, **kw │
+opt-1_3b [stderr] │    72 │   │                                                                  │
+opt-1_3b [stderr] │    73 │   │   wrapper._decorator_name_ = "wrap_auth"                         │
+opt-1_3b [stderr] │    74 │   │   return wrapper                                                 │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/do │
+opt-1_3b [stderr] │ wnload/streaming_download_manager.py:485 in xopen                            │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │    482 │   file_str = _as_str(file)                                          │
+opt-1_3b [stderr] │    483 │   main_hop, *rest_hops = file_str.split("::")                       │
+opt-1_3b [stderr] │    484 │   if is_local_path(main_hop):                                       │
+opt-1_3b [stderr] │ ❱  485 │   │   return open(main_hop, mode, *args, **kwargs)                  │
+opt-1_3b [stderr] │    486 │   # add headers and cookies for authentication on the HF Hub and fo │
+opt-1_3b [stderr] │    487 │   if not rest_hops and (main_hop.startswith("http://") or main_hop. │
+opt-1_3b [stderr] │    488 │   │   file, new_kwargs = _prepare_http_url_kwargs(file_str, use_aut │
+opt-1_3b [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b [stderr] NotADirectoryError: [Errno 20] Not a directory:
+opt-1_3b [stderr] '/Tmp/slurm.4256385.0/base/cache/downloads/51c5d50c8a273ec4f6b79d85145c55a2f4744
+opt-1_3b [stderr] 7e8ea94d14c558ea9d58590b9f8/wikitext-103/wiki.test.tokens'
+opt-1_3b [stderr] 
+opt-1_3b [stderr] The above exception was the direct cause of the following exception:
+opt-1_3b [stderr] 
+opt-1_3b [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py:394 in      │
+opt-1_3b [stderr] │ <module>                                                                     │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   391                                                                        │
+opt-1_3b [stderr] │   392                                                                        │
+opt-1_3b [stderr] │   393 if __name__ == "__main__":                                             │
+opt-1_3b [stderr] │ ❱ 394 │   main()                                                             │
+opt-1_3b [stderr] │   395                                                                        │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py:148 in main │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   145 │   validation_split_percentage = config["validation_split_percentage" │
+opt-1_3b [stderr] │   146 │   dataset_name = config["dataset_name"]                              │
+opt-1_3b [stderr] │   147 │   dataset_config_name = config["dataset_config_name"]                │
+opt-1_3b [stderr] │ ❱ 148 │   raw_datasets = load_dataset(dataset_name, dataset_config_name, rev │
+opt-1_3b [stderr] │   149 │   if "validation" not in raw_datasets.keys():                        │
+opt-1_3b [stderr] │   150 │   │   raw_datasets["validation"] = load_dataset(                     │
+opt-1_3b [stderr] │   151 │   │   │   dataset_name,                                              │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/lo │
+opt-1_3b [stderr] │ ad.py:1791 in load_dataset                                                   │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   1788 │   try_from_hf_gcs = path not in _PACKAGED_DATASETS_MODULES          │
+opt-1_3b [stderr] │   1789 │                                                                     │
+opt-1_3b [stderr] │   1790 │   # Download and prepare data                                       │
+opt-1_3b [stderr] │ ❱ 1791 │   builder_instance.download_and_prepare(                            │
+opt-1_3b [stderr] │   1792 │   │   download_config=download_config,                              │
+opt-1_3b [stderr] │   1793 │   │   download_mode=download_mode,                                  │
+opt-1_3b [stderr] │   1794 │   │   verification_mode=verification_mode,                          │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b [stderr] │ ilder.py:891 in download_and_prepare                                         │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │    888 │   │   │   │   │   │   │   prepare_split_kwargs["max_shard_size"] =  │
+opt-1_3b [stderr] │    889 │   │   │   │   │   │   if num_proc is not None:                      │
+opt-1_3b [stderr] │    890 │   │   │   │   │   │   │   prepare_split_kwargs["num_proc"] = num_pr │
+opt-1_3b [stderr] │ ❱  891 │   │   │   │   │   │   self._download_and_prepare(                   │
+opt-1_3b [stderr] │    892 │   │   │   │   │   │   │   dl_manager=dl_manager,                    │
+opt-1_3b [stderr] │    893 │   │   │   │   │   │   │   verification_mode=verification_mode,      │
+opt-1_3b [stderr] │    894 │   │   │   │   │   │   │   **prepare_split_kwargs,                   │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b [stderr] │ ilder.py:1651 in _download_and_prepare                                       │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   1648 │   │   yield job_id, True, (total_num_examples, total_num_bytes, wri │
+opt-1_3b [stderr] │   1649 │                                                                     │
+opt-1_3b [stderr] │   1650 │   def _download_and_prepare(self, dl_manager, verification_mode, ** │
+opt-1_3b [stderr] │ ❱ 1651 │   │   super()._download_and_prepare(                                │
+opt-1_3b [stderr] │   1652 │   │   │   dl_manager,                                               │
+opt-1_3b [stderr] │   1653 │   │   │   verification_mode,                                        │
+opt-1_3b [stderr] │   1654 │   │   │   check_duplicate_keys=verification_mode == VerificationMod │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b [stderr] │ ilder.py:986 in _download_and_prepare                                        │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │    983 │   │   │                                                             │
+opt-1_3b [stderr] │    984 │   │   │   try:                                                      │
+opt-1_3b [stderr] │    985 │   │   │   │   # Prepare split will record examples associated to th │
+opt-1_3b [stderr] │ ❱  986 │   │   │   │   self._prepare_split(split_generator, **prepare_split_ │
+opt-1_3b [stderr] │    987 │   │   │   except OSError as e:                                      │
+opt-1_3b [stderr] │    988 │   │   │   │   raise OSError(                                        │
+opt-1_3b [stderr] │    989 │   │   │   │   │   "Cannot find data file. "                         │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b [stderr] │ ilder.py:1490 in _prepare_split                                              │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   1487 │   │   │   result = None                                             │
+opt-1_3b [stderr] │   1488 │   │   │   gen_kwargs = split_generator.gen_kwargs                   │
+opt-1_3b [stderr] │   1489 │   │   │   job_id = 0                                                │
+opt-1_3b [stderr] │ ❱ 1490 │   │   │   for job_id, done, content in self._prepare_split_single(  │
+opt-1_3b [stderr] │   1491 │   │   │   │   gen_kwargs=gen_kwargs, job_id=job_id, **_prepare_spli │
+opt-1_3b [stderr] │   1492 │   │   │   ):                                                        │
+opt-1_3b [stderr] │   1493 │   │   │   │   if done:                                              │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b [stderr] │ ilder.py:1646 in _prepare_split_single                                       │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   1643 │   │   │   # Ignore the writer's error for no examples written to th │
+opt-1_3b [stderr] │   1644 │   │   │   if isinstance(e, SchemaInferenceError) and e.__context__  │
+opt-1_3b [stderr] │   1645 │   │   │   │   e = e.__context__                                     │
+opt-1_3b [stderr] │ ❱ 1646 │   │   │   raise DatasetGenerationError("An error occurred while gen │
+opt-1_3b [stderr] │   1647 │   │                                                                 │
+opt-1_3b [stderr] │   1648 │   │   yield job_id, True, (total_num_examples, total_num_bytes, wri │
+opt-1_3b [stderr] │   1649                                                                       │
+opt-1_3b [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b [stderr] DatasetGenerationError: An error occurred while generating the dataset
+opt-1_3b [stderr] 
+opt-1_3b [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/bin/accelerate:8 in <module>            │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   5 from accelerate.commands.accelerate_cli import main                      │
+opt-1_3b [stderr] │   6 if __name__ == '__main__':                                               │
+opt-1_3b [stderr] │   7 │   sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])     │
+opt-1_3b [stderr] │ ❱ 8 │   sys.exit(main())                                                     │
+opt-1_3b [stderr] │   9                                                                          │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/accelerate/ │
+opt-1_3b [stderr] │ commands/accelerate_cli.py:45 in main                                        │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   42 │   │   exit(1)                                                         │
+opt-1_3b [stderr] │   43 │                                                                       │
+opt-1_3b [stderr] │   44 │   # Run                                                               │
+opt-1_3b [stderr] │ ❱ 45 │   args.func(args)                                                     │
+opt-1_3b [stderr] │   46                                                                         │
+opt-1_3b [stderr] │   47                                                                         │
+opt-1_3b [stderr] │   48 if __name__ == "__main__":                                              │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/accelerate/ │
+opt-1_3b [stderr] │ commands/launch.py:923 in launch_command                                     │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   920 │   elif defaults is not None and defaults.compute_environment == Comp │
+opt-1_3b [stderr] │   921 │   │   sagemaker_launcher(defaults, args)                             │
+opt-1_3b [stderr] │   922 │   else:                                                              │
+opt-1_3b [stderr] │ ❱ 923 │   │   simple_launcher(args)                                          │
+opt-1_3b [stderr] │   924                                                                        │
+opt-1_3b [stderr] │   925                                                                        │
+opt-1_3b [stderr] │   926 def main():                                                            │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/accelerate/ │
+opt-1_3b [stderr] │ commands/launch.py:579 in simple_launcher                                    │
+opt-1_3b [stderr] │                                                                              │
+opt-1_3b [stderr] │   576 │   process.wait()                                                     │
+opt-1_3b [stderr] │   577 │   if process.returncode != 0:                                        │
+opt-1_3b [stderr] │   578 │   │   if not args.quiet:                                             │
+opt-1_3b [stderr] │ ❱ 579 │   │   │   raise subprocess.CalledProcessError(returncode=process.ret │
+opt-1_3b [stderr] │   580 │   │   else:                                                          │
+opt-1_3b [stderr] │   581 │   │   │   sys.exit(1)                                                │
+opt-1_3b [stderr] │   582                                                                        │
+opt-1_3b [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b [stderr] CalledProcessError: Command '['/Tmp/slurm.4256385.0/base/venv/torch/bin/python',
+opt-1_3b [stderr] '/Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py']' returned
+opt-1_3b [stderr] non-zero exit status 1.
+opt-1_3b [end (1)] accelerate launch --mixed_precision=fp16 --num_machines=1 --dynamo_backend=no --num_processes=1 --num_cpu_threads_per_process=8 /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py [at 2024-02-28 11:28:47.819198]
+
+Error Report
+------------
+
+opt-1_3b
+^^^^^^^^
+    non-zero exit status 1.
+
+Summary
+-------
+    Success: 0
+    Failures: 1
+[DONE] Reports directory: /Tmp/slurm.4256385.0/base/runs/prepare.2024-02-28_11:28:41.800412
+
+Run
+---
+opt-1_3b.0 [config.dirs.base] /Tmp/slurm.4256385.0/base
+opt-1_3b.0 [config.dirs.venv] /Tmp/slurm.4256385.0/base/venv/torch
+opt-1_3b.0 [config.dirs.data] /Tmp/slurm.4256385.0/base/data
+opt-1_3b.0 [config.dirs.runs] /Tmp/slurm.4256385.0/base/runs
+opt-1_3b.0 [config.dirs.extra] /Tmp/slurm.4256385.0/base/extra/opt
+opt-1_3b.0 [config.dirs.cache] /Tmp/slurm.4256385.0/base/cache
+opt-1_3b.0 [config.arch] cuda
+opt-1_3b.0 [config.group] opt
+opt-1_3b.0 [config.install_group] torch
+opt-1_3b.0 [config.install_variant] cuda
+opt-1_3b.0 [config.run_name] mipasaro.2024-02-28_11:28:49.076571
+opt-1_3b.0 [config.enabled] True
+opt-1_3b.0 [config.capabilities.nodes] 1
+opt-1_3b.0 [config.max_duration] 600
+opt-1_3b.0 [config.voir.options.stop] 60
+opt-1_3b.0 [config.voir.options.interval] 1s
+opt-1_3b.0 [config.config_base] /Tmp/slurm.4256385.0/milabench/config
+opt-1_3b.0 [config.config_file] /Tmp/slurm.4256385.0/milabench/config/standard.yaml
+opt-1_3b.0 [config.tags] ['huggingface', 'language-modeling', 'llm', 'multigpu', 'nlp', 'transformer']
+opt-1_3b.0 [config.definition] /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt
+opt-1_3b.0 [config.plan.method] njobs
+opt-1_3b.0 [config.plan.n] 1
+opt-1_3b.0 [config.manager_addr] override-me
+opt-1_3b.0 [config.manager_port] 10000
+opt-1_3b.0 [config.cpus_per_gpu] 8
+opt-1_3b.0 [config.gradient_accumulation_steps] 1
+opt-1_3b.0 [config.max_train_steps] 100
+opt-1_3b.0 [config.dataset_name] wikitext
+opt-1_3b.0 [config.dataset_config_name] wikitext-103-v1
+opt-1_3b.0 [config.validation_split_percentage] 5
+opt-1_3b.0 [config.use_deepspeed] False
+opt-1_3b.0 [config.num_machines] 1
+opt-1_3b.0 [config.model_name] facebook/opt-1.3b
+opt-1_3b.0 [config.per_gpu_batch_size] 1
+opt-1_3b.0 [config.weight] 5.0
+opt-1_3b.0 [config.name] opt-1_3b
+opt-1_3b.0 [config.tag] ['opt-1_3b', '0']
+opt-1_3b.0 [config.job-number] 0
+opt-1_3b.0 [config.devices] ['0', '1']
+opt-1_3b.0 [start] accelerate launch --mixed_precision=fp16 --dynamo_backend=no --machine_rank=0 --num_machines=1 --multi_gpu --gradient_accumulation_steps=1 --num_cpu_threads_per_process=8 --main_process_ip=override-me --main_process_port=10000 --num_processes=2 /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py [at 2024-02-28 11:28:49.321288]
+opt-1_3b.0 [stdout] [02/28/24 11:28:52] INFO     [1/2] __main__ - Distributed          logging.py:47
+opt-1_3b.0 [stdout]                              environment: MULTI_GPU  Backend: nccl
+opt-1_3b.0 [stdout]                              Num processes: 2
+opt-1_3b.0 [stdout]                              Process index: 1
+opt-1_3b.0 [stdout]                              Local process index: 1
+opt-1_3b.0 [stdout]                              Device: cuda:1
+opt-1_3b.0 [stdout] 
+opt-1_3b.0 [stdout]                              Mixed precision type: fp16
+opt-1_3b.0 [stdout] 
+opt-1_3b.0 [data] {'gpudata': {'0': {'load': 0, 'memory': [697.5625, 81920.0], 'temperature': 27},
+             '1': {'load': 0,
+                   'memory': [711.9375, 81920.0],
+                   'temperature': 26}},
+ 'task': 'main'}
+opt-1_3b.0 [stdout] [02/28/24 11:28:52] INFO     [0/2] __main__ - Distributed          logging.py:47
+opt-1_3b.0 [stdout]                              environment: MULTI_GPU  Backend: nccl
+opt-1_3b.0 [stdout]                              Num processes: 2
+opt-1_3b.0 [stdout]                              Process index: 0
+opt-1_3b.0 [stdout]                              Local process index: 0
+opt-1_3b.0 [stdout]                              Device: cuda:0
+opt-1_3b.0 [stdout] 
+opt-1_3b.0 [stdout]                              Mixed precision type: fp16
+opt-1_3b.0 [stdout] 
+opt-1_3b.0 [stdout] Downloading and preparing dataset wikitext/wikitext-103-v1 to /Tmp/slurm.4256385.0/base/cache/wikitext/wikitext-103-v1/1.0.0/a241db52902eaf2c6aa732210bead40c090019a499ceb13bcbfa3f8ab646a126...
+opt-1_3b.0 [stderr] Generating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]
+opt-1_3b.0 [stdout] Downloading and preparing dataset wikitext/wikitext-103-v1 to /Tmp/slurm.4256385.0/base/cache/wikitext/wikitext-103-v1/1.0.0/a241db52902eaf2c6aa732210bead40c090019a499ceb13bcbfa3f8ab646a126...
+opt-1_3b.0 [stderr] Generating test split:   0%|          | 0/4358 [00:00<?, ? examples/s]
+opt-1_3b.0 [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1610 in _prepare_split_single                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1607 │   │   │   )                                                         │
+opt-1_3b.0 [stderr] │   1608 │   │   │   try:                                                      │
+opt-1_3b.0 [stderr] │   1609 │   │   │   │   _time = time.time()                                   │
+opt-1_3b.0 [stderr] │ ❱ 1610 │   │   │   │   for key, record in generator:                         │
+opt-1_3b.0 [stderr] │   1611 │   │   │   │   │   if max_shard_size is not None and writer._num_byt │
+opt-1_3b.0 [stderr] │   1612 │   │   │   │   │   │   num_examples, num_bytes = writer.finalize()   │
+opt-1_3b.0 [stderr] │   1613 │   │   │   │   │   │   writer.close()                                │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/cache/modules/datasets_modules/datasets/wikitext/a │
+opt-1_3b.0 [stderr] │ 241db52902eaf2c6aa732210bead40c090019a499ceb13bcbfa3f8ab646a126/wikitext.py: │
+opt-1_3b.0 [stderr] │ 187 in _generate_examples                                                    │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   184 │   │                                                                  │
+opt-1_3b.0 [stderr] │   185 │   │   """Yields examples."""                                         │
+opt-1_3b.0 [stderr] │   186 │   │   # TODO(wikitext): Yields (key, example) tuples from the datase │
+opt-1_3b.0 [stderr] │ ❱ 187 │   │   with open(data_file, encoding="utf-8") as f:                   │
+opt-1_3b.0 [stderr] │   188 │   │   │   for idx, row in enumerate(f):                              │
+opt-1_3b.0 [stderr] │   189 │   │   │   │   if row.strip():                                        │
+opt-1_3b.0 [stderr] │   190 │   │   │   │   │   yield idx, {"text": row}                           │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/st │
+opt-1_3b.0 [stderr] │ reaming.py:71 in wrapper                                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    68 │   def wrap_auth(function):                                           │
+opt-1_3b.0 [stderr] │    69 │   │   @wraps(function)                                               │
+opt-1_3b.0 [stderr] │    70 │   │   def wrapper(*args, **kwargs):                                  │
+opt-1_3b.0 [stderr] │ ❱  71 │   │   │   return function(*args, use_auth_token=use_auth_token, **kw │
+opt-1_3b.0 [stderr] │    72 │   │                                                                  │
+opt-1_3b.0 [stderr] │    73 │   │   wrapper._decorator_name_ = "wrap_auth"                         │
+opt-1_3b.0 [stderr] │    74 │   │   return wrapper                                                 │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/do │
+opt-1_3b.0 [stderr] │ wnload/streaming_download_manager.py:485 in xopen                            │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    482 │   file_str = _as_str(file)                                          │
+opt-1_3b.0 [stderr] │    483 │   main_hop, *rest_hops = file_str.split("::")                       │
+opt-1_3b.0 [stderr] │    484 │   if is_local_path(main_hop):                                       │
+opt-1_3b.0 [stderr] │ ❱  485 │   │   return open(main_hop, mode, *args, **kwargs)                  │
+opt-1_3b.0 [stderr] │    486 │   # add headers and cookies for authentication on the HF Hub and fo │
+opt-1_3b.0 [stderr] │    487 │   if not rest_hops and (main_hop.startswith("http://") or main_hop. │
+opt-1_3b.0 [stderr] │    488 │   │   file, new_kwargs = _prepare_http_url_kwargs(file_str, use_aut │
+opt-1_3b.0 [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b.0 [stderr] NotADirectoryError: [Errno 20] Not a directory:
+opt-1_3b.0 [stderr] '/Tmp/slurm.4256385.0/base/cache/downloads/51c5d50c8a273ec4f6b79d85145c55a2f4744
+opt-1_3b.0 [stderr] 7e8ea94d14c558ea9d58590b9f8/wikitext-103/wiki.test.tokens'
+opt-1_3b.0 [stderr] 
+opt-1_3b.0 [stderr] The above exception was the direct cause of the following exception:
+opt-1_3b.0 [stderr] 
+opt-1_3b.0 [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py:394 in      │
+opt-1_3b.0 [stderr] │ <module>                                                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   391                                                                        │
+opt-1_3b.0 [stderr] │   392                                                                        │
+opt-1_3b.0 [stderr] │   393 if __name__ == "__main__":                                             │
+opt-1_3b.0 [stderr] │ ❱ 394 │   main()                                                             │
+opt-1_3b.0 [stderr] │   395                                                                        │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py:148 in main │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   145 │   validation_split_percentage = config["validation_split_percentage" │
+opt-1_3b.0 [stderr] │   146 │   dataset_name = config["dataset_name"]                              │
+opt-1_3b.0 [stderr] │   147 │   dataset_config_name = config["dataset_config_name"]                │
+opt-1_3b.0 [stderr] │ ❱ 148 │   raw_datasets = load_dataset(dataset_name, dataset_config_name, rev │
+opt-1_3b.0 [stderr] │   149 │   if "validation" not in raw_datasets.keys():                        │
+opt-1_3b.0 [stderr] │   150 │   │   raw_datasets["validation"] = load_dataset(                     │
+opt-1_3b.0 [stderr] │   151 │   │   │   dataset_name,                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/lo │
+opt-1_3b.0 [stderr] │ ad.py:1791 in load_dataset                                                   │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1788 │   try_from_hf_gcs = path not in _PACKAGED_DATASETS_MODULES          │
+opt-1_3b.0 [stderr] │   1789 │                                                                     │
+opt-1_3b.0 [stderr] │   1790 │   # Download and prepare data                                       │
+opt-1_3b.0 [stderr] │ ❱ 1791 │   builder_instance.download_and_prepare(                            │
+opt-1_3b.0 [stderr] │   1792 │   │   download_config=download_config,                              │
+opt-1_3b.0 [stderr] │   1793 │   │   download_mode=download_mode,                                  │
+opt-1_3b.0 [stderr] │   1794 │   │   verification_mode=verification_mode,                          │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:891 in download_and_prepare                                         │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    888 │   │   │   │   │   │   │   prepare_split_kwargs["max_shard_size"] =  │
+opt-1_3b.0 [stderr] │    889 │   │   │   │   │   │   if num_proc is not None:                      │
+opt-1_3b.0 [stderr] │    890 │   │   │   │   │   │   │   prepare_split_kwargs["num_proc"] = num_pr │
+opt-1_3b.0 [stderr] │ ❱  891 │   │   │   │   │   │   self._download_and_prepare(                   │
+opt-1_3b.0 [stderr] │    892 │   │   │   │   │   │   │   dl_manager=dl_manager,                    │
+opt-1_3b.0 [stderr] │    893 │   │   │   │   │   │   │   verification_mode=verification_mode,      │
+opt-1_3b.0 [stderr] │    894 │   │   │   │   │   │   │   **prepare_split_kwargs,                   │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1651 in _download_and_prepare                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1648 │   │   yield job_id, True, (total_num_examples, total_num_bytes, wri │
+opt-1_3b.0 [stderr] │   1649 │                                                                     │
+opt-1_3b.0 [stderr] │   1650 │   def _download_and_prepare(self, dl_manager, verification_mode, ** │
+opt-1_3b.0 [stderr] │ ❱ 1651 │   │   super()._download_and_prepare(                                │
+opt-1_3b.0 [stderr] │   1652 │   │   │   dl_manager,                                               │
+opt-1_3b.0 [stderr] │   1653 │   │   │   verification_mode,                                        │
+opt-1_3b.0 [stderr] │   1654 │   │   │   check_duplicate_keys=verification_mode == VerificationMod │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:986 in _download_and_prepare                                        │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    983 │   │   │                                                             │
+opt-1_3b.0 [stderr] │    984 │   │   │   try:                                                      │
+opt-1_3b.0 [stderr] │    985 │   │   │   │   # Prepare split will record examples associated to th │
+opt-1_3b.0 [stderr] │ ❱  986 │   │   │   │   self._prepare_split(split_generator, **prepare_split_ │
+opt-1_3b.0 [stderr] │    987 │   │   │   except OSError as e:                                      │
+opt-1_3b.0 [stderr] │    988 │   │   │   │   raise OSError(                                        │
+opt-1_3b.0 [stderr] │    989 │   │   │   │   │   "Cannot find data file. "                         │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1490 in _prepare_split                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1487 │   │   │   result = None                                             │
+opt-1_3b.0 [stderr] │   1488 │   │   │   gen_kwargs = split_generator.gen_kwargs                   │
+opt-1_3b.0 [stderr] │   1489 │   │   │   job_id = 0                                                │
+opt-1_3b.0 [stderr] │ ❱ 1490 │   │   │   for job_id, done, content in self._prepare_split_single(  │
+opt-1_3b.0 [stderr] │   1491 │   │   │   │   gen_kwargs=gen_kwargs, job_id=job_id, **_prepare_spli │
+opt-1_3b.0 [stderr] │   1492 │   │   │   ):                                                        │
+opt-1_3b.0 [stderr] │   1493 │   │   │   │   if done:                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1646 in _prepare_split_single                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1643 │   │   │   # Ignore the writer's error for no examples written to th │
+opt-1_3b.0 [stderr] │   1644 │   │   │   if isinstance(e, SchemaInferenceError) and e.__context__  │
+opt-1_3b.0 [stderr] │   1645 │   │   │   │   e = e.__context__                                     │
+opt-1_3b.0 [stderr] │ ❱ 1646 │   │   │   raise DatasetGenerationError("An error occurred while gen │
+opt-1_3b.0 [stderr] │   1647 │   │                                                                 │
+opt-1_3b.0 [stderr] │   1648 │   │   yield job_id, True, (total_num_examples, total_num_bytes, wri │
+opt-1_3b.0 [stderr] │   1649                                                                       │
+opt-1_3b.0 [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b.0 [stderr] DatasetGenerationError: An error occurred while generating the dataset
+opt-1_3b.0 [stderr] 
+opt-1_3b.0 [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1610 in _prepare_split_single                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1607 │   │   │   )                                                         │
+opt-1_3b.0 [stderr] │   1608 │   │   │   try:                                                      │
+opt-1_3b.0 [stderr] │   1609 │   │   │   │   _time = time.time()                                   │
+opt-1_3b.0 [stderr] │ ❱ 1610 │   │   │   │   for key, record in generator:                         │
+opt-1_3b.0 [stderr] │   1611 │   │   │   │   │   if max_shard_size is not None and writer._num_byt │
+opt-1_3b.0 [stderr] │   1612 │   │   │   │   │   │   num_examples, num_bytes = writer.finalize()   │
+opt-1_3b.0 [stderr] │   1613 │   │   │   │   │   │   writer.close()                                │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/cache/modules/datasets_modules/datasets/wikitext/a │
+opt-1_3b.0 [stderr] │ 241db52902eaf2c6aa732210bead40c090019a499ceb13bcbfa3f8ab646a126/wikitext.py: │
+opt-1_3b.0 [stderr] │ 187 in _generate_examples                                                    │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   184 │   │                                                                  │
+opt-1_3b.0 [stderr] │   185 │   │   """Yields examples."""                                         │
+opt-1_3b.0 [stderr] │   186 │   │   # TODO(wikitext): Yields (key, example) tuples from the datase │
+opt-1_3b.0 [stderr] │ ❱ 187 │   │   with open(data_file, encoding="utf-8") as f:                   │
+opt-1_3b.0 [stderr] │   188 │   │   │   for idx, row in enumerate(f):                              │
+opt-1_3b.0 [stderr] │   189 │   │   │   │   if row.strip():                                        │
+opt-1_3b.0 [stderr] │   190 │   │   │   │   │   yield idx, {"text": row}                           │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/st │
+opt-1_3b.0 [stderr] │ reaming.py:71 in wrapper                                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    68 │   def wrap_auth(function):                                           │
+opt-1_3b.0 [stderr] │    69 │   │   @wraps(function)                                               │
+opt-1_3b.0 [stderr] │    70 │   │   def wrapper(*args, **kwargs):                                  │
+opt-1_3b.0 [stderr] │ ❱  71 │   │   │   return function(*args, use_auth_token=use_auth_token, **kw │
+opt-1_3b.0 [stderr] │    72 │   │                                                                  │
+opt-1_3b.0 [stderr] │    73 │   │   wrapper._decorator_name_ = "wrap_auth"                         │
+opt-1_3b.0 [stderr] │    74 │   │   return wrapper                                                 │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/do │
+opt-1_3b.0 [stderr] │ wnload/streaming_download_manager.py:485 in xopen                            │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    482 │   file_str = _as_str(file)                                          │
+opt-1_3b.0 [stderr] │    483 │   main_hop, *rest_hops = file_str.split("::")                       │
+opt-1_3b.0 [stderr] │    484 │   if is_local_path(main_hop):                                       │
+opt-1_3b.0 [stderr] │ ❱  485 │   │   return open(main_hop, mode, *args, **kwargs)                  │
+opt-1_3b.0 [stderr] │    486 │   # add headers and cookies for authentication on the HF Hub and fo │
+opt-1_3b.0 [stderr] │    487 │   if not rest_hops and (main_hop.startswith("http://") or main_hop. │
+opt-1_3b.0 [stderr] │    488 │   │   file, new_kwargs = _prepare_http_url_kwargs(file_str, use_aut │
+opt-1_3b.0 [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b.0 [stderr] NotADirectoryError: [Errno 20] Not a directory:
+opt-1_3b.0 [stderr] '/Tmp/slurm.4256385.0/base/cache/downloads/51c5d50c8a273ec4f6b79d85145c55a2f4744
+opt-1_3b.0 [stderr] 7e8ea94d14c558ea9d58590b9f8/wikitext-103/wiki.test.tokens'
+opt-1_3b.0 [stderr] 
+opt-1_3b.0 [stderr] The above exception was the direct cause of the following exception:
+opt-1_3b.0 [stderr] 
+opt-1_3b.0 [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py:394 in      │
+opt-1_3b.0 [stderr] │ <module>                                                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   391                                                                        │
+opt-1_3b.0 [stderr] │   392                                                                        │
+opt-1_3b.0 [stderr] │   393 if __name__ == "__main__":                                             │
+opt-1_3b.0 [stderr] │ ❱ 394 │   main()                                                             │
+opt-1_3b.0 [stderr] │   395                                                                        │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py:148 in main │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   145 │   validation_split_percentage = config["validation_split_percentage" │
+opt-1_3b.0 [stderr] │   146 │   dataset_name = config["dataset_name"]                              │
+opt-1_3b.0 [stderr] │   147 │   dataset_config_name = config["dataset_config_name"]                │
+opt-1_3b.0 [stderr] │ ❱ 148 │   raw_datasets = load_dataset(dataset_name, dataset_config_name, rev │
+opt-1_3b.0 [stderr] │   149 │   if "validation" not in raw_datasets.keys():                        │
+opt-1_3b.0 [stderr] │   150 │   │   raw_datasets["validation"] = load_dataset(                     │
+opt-1_3b.0 [stderr] │   151 │   │   │   dataset_name,                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/lo │
+opt-1_3b.0 [stderr] │ ad.py:1791 in load_dataset                                                   │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1788 │   try_from_hf_gcs = path not in _PACKAGED_DATASETS_MODULES          │
+opt-1_3b.0 [stderr] │   1789 │                                                                     │
+opt-1_3b.0 [stderr] │   1790 │   # Download and prepare data                                       │
+opt-1_3b.0 [stderr] │ ❱ 1791 │   builder_instance.download_and_prepare(                            │
+opt-1_3b.0 [stderr] │   1792 │   │   download_config=download_config,                              │
+opt-1_3b.0 [stderr] │   1793 │   │   download_mode=download_mode,                                  │
+opt-1_3b.0 [stderr] │   1794 │   │   verification_mode=verification_mode,                          │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:891 in download_and_prepare                                         │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    888 │   │   │   │   │   │   │   prepare_split_kwargs["max_shard_size"] =  │
+opt-1_3b.0 [stderr] │    889 │   │   │   │   │   │   if num_proc is not None:                      │
+opt-1_3b.0 [stderr] │    890 │   │   │   │   │   │   │   prepare_split_kwargs["num_proc"] = num_pr │
+opt-1_3b.0 [stderr] │ ❱  891 │   │   │   │   │   │   self._download_and_prepare(                   │
+opt-1_3b.0 [stderr] │    892 │   │   │   │   │   │   │   dl_manager=dl_manager,                    │
+opt-1_3b.0 [stderr] │    893 │   │   │   │   │   │   │   verification_mode=verification_mode,      │
+opt-1_3b.0 [stderr] │    894 │   │   │   │   │   │   │   **prepare_split_kwargs,                   │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1651 in _download_and_prepare                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1648 │   │   yield job_id, True, (total_num_examples, total_num_bytes, wri │
+opt-1_3b.0 [stderr] │   1649 │                                                                     │
+opt-1_3b.0 [stderr] │   1650 │   def _download_and_prepare(self, dl_manager, verification_mode, ** │
+opt-1_3b.0 [stderr] │ ❱ 1651 │   │   super()._download_and_prepare(                                │
+opt-1_3b.0 [stderr] │   1652 │   │   │   dl_manager,                                               │
+opt-1_3b.0 [stderr] │   1653 │   │   │   verification_mode,                                        │
+opt-1_3b.0 [stderr] │   1654 │   │   │   check_duplicate_keys=verification_mode == VerificationMod │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:986 in _download_and_prepare                                        │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │    983 │   │   │                                                             │
+opt-1_3b.0 [stderr] │    984 │   │   │   try:                                                      │
+opt-1_3b.0 [stderr] │    985 │   │   │   │   # Prepare split will record examples associated to th │
+opt-1_3b.0 [stderr] │ ❱  986 │   │   │   │   self._prepare_split(split_generator, **prepare_split_ │
+opt-1_3b.0 [stderr] │    987 │   │   │   except OSError as e:                                      │
+opt-1_3b.0 [stderr] │    988 │   │   │   │   raise OSError(                                        │
+opt-1_3b.0 [stderr] │    989 │   │   │   │   │   "Cannot find data file. "                         │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1490 in _prepare_split                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1487 │   │   │   result = None                                             │
+opt-1_3b.0 [stderr] │   1488 │   │   │   gen_kwargs = split_generator.gen_kwargs                   │
+opt-1_3b.0 [stderr] │   1489 │   │   │   job_id = 0                                                │
+opt-1_3b.0 [stderr] │ ❱ 1490 │   │   │   for job_id, done, content in self._prepare_split_single(  │
+opt-1_3b.0 [stderr] │   1491 │   │   │   │   gen_kwargs=gen_kwargs, job_id=job_id, **_prepare_spli │
+opt-1_3b.0 [stderr] │   1492 │   │   │   ):                                                        │
+opt-1_3b.0 [stderr] │   1493 │   │   │   │   if done:                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/datasets/bu │
+opt-1_3b.0 [stderr] │ ilder.py:1646 in _prepare_split_single                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   1643 │   │   │   # Ignore the writer's error for no examples written to th │
+opt-1_3b.0 [stderr] │   1644 │   │   │   if isinstance(e, SchemaInferenceError) and e.__context__  │
+opt-1_3b.0 [stderr] │   1645 │   │   │   │   e = e.__context__                                     │
+opt-1_3b.0 [stderr] │ ❱ 1646 │   │   │   raise DatasetGenerationError("An error occurred while gen │
+opt-1_3b.0 [stderr] │   1647 │   │                                                                 │
+opt-1_3b.0 [stderr] │   1648 │   │   yield job_id, True, (total_num_examples, total_num_bytes, wri │
+opt-1_3b.0 [stderr] │   1649                                                                       │
+opt-1_3b.0 [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b.0 [stderr] DatasetGenerationError: An error occurred while generating the dataset
+opt-1_3b.0 [stderr] 
+opt-1_3b.0 [stdout] [11:28:55] ERROR    failed (exitcode: 1) local_rank: 0 (pid: 1094653) api.py:672
+opt-1_3b.0 [stdout]                     of binary:
+opt-1_3b.0 [stdout]                     /Tmp/slurm.4256385.0/base/venv/torch/bin/python
+opt-1_3b.0 [stderr] ╭───────────────────── Traceback (most recent call last) ──────────────────────╮
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/bin/accelerate:8 in <module>            │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   5 from accelerate.commands.accelerate_cli import main                      │
+opt-1_3b.0 [stderr] │   6 if __name__ == '__main__':                                               │
+opt-1_3b.0 [stderr] │   7 │   sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])     │
+opt-1_3b.0 [stderr] │ ❱ 8 │   sys.exit(main())                                                     │
+opt-1_3b.0 [stderr] │   9                                                                          │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/accelerate/ │
+opt-1_3b.0 [stderr] │ commands/accelerate_cli.py:45 in main                                        │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   42 │   │   exit(1)                                                         │
+opt-1_3b.0 [stderr] │   43 │                                                                       │
+opt-1_3b.0 [stderr] │   44 │   # Run                                                               │
+opt-1_3b.0 [stderr] │ ❱ 45 │   args.func(args)                                                     │
+opt-1_3b.0 [stderr] │   46                                                                         │
+opt-1_3b.0 [stderr] │   47                                                                         │
+opt-1_3b.0 [stderr] │   48 if __name__ == "__main__":                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/accelerate/ │
+opt-1_3b.0 [stderr] │ commands/launch.py:914 in launch_command                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   911 │   elif args.use_megatron_lm and not args.cpu:                        │
+opt-1_3b.0 [stderr] │   912 │   │   multi_gpu_launcher(args)                                       │
+opt-1_3b.0 [stderr] │   913 │   elif args.multi_gpu and not args.cpu:                              │
+opt-1_3b.0 [stderr] │ ❱ 914 │   │   multi_gpu_launcher(args)                                       │
+opt-1_3b.0 [stderr] │   915 │   elif args.tpu and not args.cpu:                                    │
+opt-1_3b.0 [stderr] │   916 │   │   if args.tpu_use_cluster:                                       │
+opt-1_3b.0 [stderr] │   917 │   │   │   tpu_pod_launcher(args)                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/accelerate/ │
+opt-1_3b.0 [stderr] │ commands/launch.py:603 in multi_gpu_launcher                                 │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   600 │   )                                                                  │
+opt-1_3b.0 [stderr] │   601 │   with patch_environment(**current_env):                             │
+opt-1_3b.0 [stderr] │   602 │   │   try:                                                           │
+opt-1_3b.0 [stderr] │ ❱ 603 │   │   │   distrib_run.run(args)                                      │
+opt-1_3b.0 [stderr] │   604 │   │   except Exception:                                              │
+opt-1_3b.0 [stderr] │   605 │   │   │   if is_rich_available() and debug:                          │
+opt-1_3b.0 [stderr] │   606 │   │   │   │   console = get_console()                                │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/torch/distr │
+opt-1_3b.0 [stderr] │ ibuted/run.py:785 in run                                                     │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   782 │   │   )                                                              │
+opt-1_3b.0 [stderr] │   783 │                                                                      │
+opt-1_3b.0 [stderr] │   784 │   config, cmd, cmd_args = config_from_args(args)                     │
+opt-1_3b.0 [stderr] │ ❱ 785 │   elastic_launch(                                                    │
+opt-1_3b.0 [stderr] │   786 │   │   config=config,                                                 │
+opt-1_3b.0 [stderr] │   787 │   │   entrypoint=cmd,                                                │
+opt-1_3b.0 [stderr] │   788 │   )(*cmd_args)                                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/torch/distr │
+opt-1_3b.0 [stderr] │ ibuted/launcher/api.py:134 in __call__                                       │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   131 │   │   self._entrypoint = entrypoint                                  │
+opt-1_3b.0 [stderr] │   132 │                                                                      │
+opt-1_3b.0 [stderr] │   133 │   def __call__(self, *args):                                         │
+opt-1_3b.0 [stderr] │ ❱ 134 │   │   return launch_agent(self._config, self._entrypoint, list(args) │
+opt-1_3b.0 [stderr] │   135                                                                        │
+opt-1_3b.0 [stderr] │   136                                                                        │
+opt-1_3b.0 [stderr] │   137 def _get_entrypoint_name(                                              │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │ /Tmp/slurm.4256385.0/base/venv/torch/lib/python3.9/site-packages/torch/distr │
+opt-1_3b.0 [stderr] │ ibuted/launcher/api.py:250 in launch_agent                                   │
+opt-1_3b.0 [stderr] │                                                                              │
+opt-1_3b.0 [stderr] │   247 │   │   │   # if the error files for the failed children exist         │
+opt-1_3b.0 [stderr] │   248 │   │   │   # @record will copy the first error (root cause)           │
+opt-1_3b.0 [stderr] │   249 │   │   │   # to the error file of the launcher process.               │
+opt-1_3b.0 [stderr] │ ❱ 250 │   │   │   raise ChildFailedError(                                    │
+opt-1_3b.0 [stderr] │   251 │   │   │   │   name=entrypoint_name,                                  │
+opt-1_3b.0 [stderr] │   252 │   │   │   │   failures=result.failures,                              │
+opt-1_3b.0 [stderr] │   253 │   │   │   )                                                          │
+opt-1_3b.0 [stderr] ╰──────────────────────────────────────────────────────────────────────────────╯
+opt-1_3b.0 [stderr] ChildFailedError:
+opt-1_3b.0 [stderr] ============================================================
+opt-1_3b.0 [stderr] /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py FAILED
+opt-1_3b.0 [stderr] ------------------------------------------------------------
+opt-1_3b.0 [stderr] Failures:
+opt-1_3b.0 [stderr] [1]:
+opt-1_3b.0 [stderr]   time      : 2024-02-28_11:28:55
+opt-1_3b.0 [stderr]   host      : cn-g024.server.mila.quebec
+opt-1_3b.0 [stderr]   rank      : 1 (local_rank: 1)
+opt-1_3b.0 [stderr]   exitcode  : 1 (pid: 1094654)
+opt-1_3b.0 [stderr]   error_file: <N/A>
+opt-1_3b.0 [stderr]   traceback : To enable traceback see:
+opt-1_3b.0 [stderr] https://pytorch.org/docs/stable/elastic/errors.html
+opt-1_3b.0 [stderr] ------------------------------------------------------------
+opt-1_3b.0 [stderr] Root Cause (first observed failure):
+opt-1_3b.0 [stderr] [0]:
+opt-1_3b.0 [stderr]   time      : 2024-02-28_11:28:55
+opt-1_3b.0 [stderr]   host      : cn-g024.server.mila.quebec
+opt-1_3b.0 [stderr]   rank      : 0 (local_rank: 0)
+opt-1_3b.0 [stderr]   exitcode  : 1 (pid: 1094653)
+opt-1_3b.0 [stderr]   error_file: <N/A>
+opt-1_3b.0 [stderr]   traceback : To enable traceback see:
+opt-1_3b.0 [stderr] https://pytorch.org/docs/stable/elastic/errors.html
+opt-1_3b.0 [stderr] ============================================================
+opt-1_3b.0 [end (1)] accelerate launch --mixed_precision=fp16 --dynamo_backend=no --machine_rank=0 --num_machines=1 --multi_gpu --gradient_accumulation_steps=1 --num_cpu_threads_per_process=8 --main_process_ip=override-me --main_process_port=10000 --num_processes=2 /Tmp/slurm.4256385.0/milabench/benchmarks/accelerate_opt/main.py [at 2024-02-28 11:28:56.347320]
+
+Error Report
+------------
+
+opt-1_3b.0
+^^^^^^^^^^
+    ============================================================
+
+Summary
+-------
+    Success: 0
+    Failures: 1
+[DONE] Reports directory: /Tmp/slurm.4256385.0/base/runs/mipasaro.2024-02-28_11:28:49.076571
+Source: /Tmp/slurm.4256385.0/base/runs/mipasaro.2024-02-28_11:28:49.076571
+=================
+Benchmark results
+=================
+         fail n peak_memory perf perf_adj sem% std%
+opt-1_3b    1 1          -1  NaN      NaN  NaN  NaN
+
+Errors
+------
+1 errors, details in HTML report.
+----
+Done after 128
+
+
+======== GPU REPORT ========
+
+==============NVSMI LOG==============
+
+Timestamp                                 : Wed Feb 28 11:28:56 2024
+Driver Version                            : 535.104.12
+CUDA Version                              : 12.2
+
+Attached GPUs                             : 2
+GPU 00000000:01:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 1094653
+            GPU Utilization               : 0 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 600 MiB
+            Time                          : 3108 ms
+            Is Running                    : 0
+
+GPU 00000000:C1:00.0
+    Accounting Mode                       : Enabled
+    Accounting Mode Buffer Size           : 4000
+    Accounted Processes
+        Process ID                        : 1094654
+            GPU Utilization               : 1 %
+            Memory Utilization            : 0 %
+            Max memory usage              : 600 MiB
+            Time                          : 2840 ms
+            Is Running                    : 0
+
+Wed Feb 28 11:28:56 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.104.12             Driver Version: 535.104.12   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  NVIDIA A100-SXM4-80GB          On  | 00000000:01:00.0 Off |                    0 |
+| N/A   28C    P0              77W / 500W |      2MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+|   1  NVIDIA A100-SXM4-80GB          On  | 00000000:C1:00.0 Off |                    0 |
+| N/A   26C    P0              59W / 500W |      2MiB / 81920MiB |      0%      Default |
+|                                         |                      |             Disabled |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+

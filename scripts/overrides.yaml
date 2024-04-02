@@ -1,0 +1,24 @@
+opt-6_7b-multinode:
+  docker_image: "ghcr.io/mila-iqia/milabench:cuda-v0.0.10"
+
+  worker_user: "delaunap"
+  manager_addr: "cn-d003"
+  worker_addrs:
+    - "cn-d004"
+
+  num_machines: 2
+  capabilities:
+    nodes: 2
+
+opt-1_3b-multinode:
+  docker_image: "ghcr.io/mila-iqia/milabench:cuda-v0.0.10"
+
+  worker_user: "delaunap"
+  manager_addr: "cn-d003"
+  worker_addrs:
+    - "cn-d004"
+
+  num_machines: 2
+  capabilities:
+    nodes: 2
+
