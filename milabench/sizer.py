@@ -312,6 +312,34 @@ class MemoryUsageExtractor(ValidationLayer):
                 yaml.dump(newdata, file)
 
 
+
+device_types = {
+    "cpu", 
+    "cuda", 
+    "ipu",
+    "xpu", 
+    "mkldnn", 
+    "opengl", 
+    "opencl", 
+    "ideep", 
+    "hip", 
+    "ve", 
+    "fpga", 
+    "ort", 
+    "xla", 
+    "lazy", 
+    "vulkan",
+    "mps", 
+    "meta", 
+    "hpu", 
+    "mtia", 
+    "privateuseon"
+}
+
+arch_to_type = {k: k for k in device_types}
+arch_to_type["rocm"] = "cuda"
+
+
 def new_argument_resolver(pack):
     context = deepcopy(system_global.get())
     arch = context.get("arch", "cpu")
@@ -321,7 +349,7 @@ def new_argument_resolver(pack):
     else:
         device_count = len(get_gpu_info()["gpus"])
 
-    ccl = {"hpu": "hccl", "cuda": "nccl", "rocm": "rccl", "xpu": "ccl", "cpu": "gloo"}
+    ccl = {"hpu": "hccl", "cuda": "nccl", "rocm": "nccl", "xpu": "ccl", "cpu": "gloo"}
 
     if device_count <= 0:
         device_count = 1
@@ -346,6 +374,7 @@ def new_argument_resolver(pack):
         context["n_worker"] = options.n_workers
 
     context["arch"] = arch
+    context["device_type"] = arch_to_type.get(arch, "cpu")
     context["ccl"] = ccl.get(arch, "gloo")
     context["milabench_data"] = pack.config.get("dirs", {}).get("data", None)
     context["milabench_cache"] = pack.config.get("dirs", {}).get("cache", None)
