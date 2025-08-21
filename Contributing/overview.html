@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Overview &mdash; milabench  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Design" href="design.html" />
+    <link rel="prev" title="Docker" href="../GettingStarted/docker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            milabench
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">News</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Welcome/Features.html">Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Welcome/Roadmap.html">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Welcome/Changelog.html">Changelog</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStarted/usage.html">Install and use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../GettingStarted/docker.html">Docker</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#benchmark-configuration">Benchmark configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#system-configuration">System Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#multinode">Multinode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#methodology">Methodology</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instrumentations">Instrumentations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-flow">Execution Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execution-plan">Execution Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="design.html">Design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="new_benchmarks.html">Adding a benchmark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sizer.html">Scaling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev-usage.html">Using milabench (DEVELOPERS)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recipes.html">Recipes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../ref-pack.html">milabench.pack</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">milabench</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Contributing/overview.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h1>
+<div class="highlight-txt notranslate"><div class="highlight"><pre><span></span>MILABENCH_BASE=workdir/results
+
+workdir
+├── milabench
+│   ├── benchmarks          # Each benchmark is inside a folder
+│   │   ├── torchvision
+|   |   |   ├── benchfile.py             # Benchmark configuration (source to checkout, script to runs etc...)
+|   |   |   ├── voirfile.py              # Instrumentation to insert timers
+|   |   |   ├── prepare.py               # Prepare script executed to fetch datasets, download pretrained models
+|   |   |   ├── main.py                  # benchmark script to be ran
+|   |   |   ├── requirements.in          # base requirements
+|   |   |   ├── requirements.cuda.txt    # pinned requirements for cuda
+|   |   |   ├── requirements.rocm.txt    # pinned requirements for rocm
+|   |   |   └── requirements.xpu.txt     # pinned requirements for xpu
+|   |   └── timm
+|   |       ├── benchfile.py    # Benchmark configuration (source to checkout, script to runs etc...)
+|   |       ├── voirfile.py     # Instrumentation to insert timers
+|   |       ├── prepare.py      # Prepare script executed to fetch datasets, download pretrained models
+|   |       └── main.py         # benchmark script to be ran
+│   ├── benchmate           # benchmate module
+│   ├── milabench           # milabench module
+│   ├── constraints         # pip constraints for different vendors
+│   └── config              # benchmark suite configurations
+│       └── standard.yaml   # &lt;= MILABENCH_CONFIG
+├── env                     # virtual environment where milabench is installed
+└── results                 # &lt;= MILABENCH_BASE
+    ├── data                # Datasets, pre-trained models
+    ├── extra
+    ├── venv                # Benchmark virtual environments
+    │    └── torch          # each benchmark can have their own environments
+    └── runs                # Raw metrics gathered by milabench
+        └── {runname}.{time}
+            └── {benchname}.D{device_id}.data   # Stream of metrics for a benchmark
+</pre></div>
+</div>
+<section id="benchmark-configuration">
+<h2>Benchmark configuration<a class="headerlink" href="#benchmark-configuration" title="Link to this heading"></a></h2>
+<p>milabench was created first as a procurement tool.
+It was design to measure performance of a given system in order to measure its suitabilty given a specific purpose (suite of benchmark).</p>
+<p>As such milabench benchmark suite is fully configurable. Users can create their own benchmark suite from it in order to
+ensure the systems are tested for their real use case.</p>
+<p>Milabench is configured using a yaml file that specify where are the benchmark and how to install them.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># you can include a previous configuration</span>
+<span class="c1"># and override its values</span>
+<span class="nt">include</span><span class="p">:</span>
+<span class="w">   </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">base.yaml</span>
+
+<span class="nt">_defaults</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">max_duration</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span><span class="w">                           </span><span class="c1"># Bench time out</span>
+<span class="w">   </span><span class="nt">voir</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">options</span><span class="p">:</span>
+<span class="w">         </span><span class="nt">stop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">60</span><span class="w">                            </span><span class="c1"># Bench stops after gathering 60 observations</span>
+<span class="w">         </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1s&quot;</span><span class="w">                      </span><span class="c1"># Gathering interval</span>
+
+<span class="w">   </span><span class="nt">validation</span><span class="p">:</span><span class="w">                                 </span><span class="c1"># Validation (disabled by default)</span>
+<span class="w">      </span><span class="nt">usage</span><span class="p">:</span>
+<span class="w">         </span><span class="nt">gpu_load_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span><span class="w">             </span><span class="c1"># ensure GPU load is higher than 50%</span>
+<span class="w">         </span><span class="nt">gpu_mem_threshold</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.5</span><span class="w">              </span><span class="c1"># ensure GPU memory is higher than 50%</span>
+
+<span class="nt">_torchvision</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">inherits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_defaults</span><span class="w">                         </span><span class="c1"># base configuration</span>
+<span class="w">   </span><span class="nt">definition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../benchmarks/torchvision</span><span class="w">       </span><span class="c1"># benchmark definition location</span>
+<span class="w">   </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torchvision</span>
+<span class="w">   </span><span class="nt">install_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torch</span><span class="w">                        </span><span class="c1"># venv name to use for this benchmark</span>
+<span class="w">   </span><span class="nt">plan</span><span class="p">:</span><span class="w">                                       </span><span class="c1"># Specify how the benchmark is scheduled</span>
+<span class="w">      </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_gpu</span><span class="w">                          </span><span class="c1"># `per_gpu` means it will spawn one bench per GPU</span>
+<span class="w">   </span><span class="nt">argv</span><span class="p">:</span><span class="w">                                       </span><span class="c1"># arguments to forward</span>
+<span class="w">      </span><span class="nt">--precision</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tf32-fp16&#39;</span>
+<span class="w">      </span><span class="nt">--lr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.01</span>
+<span class="w">      </span><span class="nt">--no-stdout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">--epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50</span>
+<span class="w">      </span><span class="nt">--num-workers</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">8</span>
+
+<span class="nt">resnet50</span><span class="p">:</span><span class="w">                                          </span><span class="c1"># benchmark name &quot;_&quot; are &quot;private&quot; and never run</span>
+<span class="w">   </span><span class="nt">inherits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_torchvision</span>
+<span class="w">   </span><span class="nt">tags</span><span class="p">:</span><span class="w">                                           </span><span class="c1"># selection tags</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vision</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">classification</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">convnet</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resnet</span>
+
+<span class="w">   </span><span class="nt">argv</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">--model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">resnet50</span>
+<span class="w">      </span><span class="nt">--batch-size</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">64</span>
+<span class="w">      </span><span class="nt">--num-workers</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{cpu_per_gpu}&quot;</span><span class="w">              </span><span class="c1"># Placeholder variable to be resolved</span>
+
+<span class="c1"># milabench can also define matrix job</span>
+<span class="nt">resnet-matrix-noio</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">matrix</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">batch-size</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">32</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">64</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">128</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1024</span><span class="p p-Indicator">]</span>
+
+<span class="w">   </span><span class="nt">job</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;resnet50-noio-bs{batch-size}&#39;</span>
+<span class="w">      </span><span class="nt">inherits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_resnet50</span>
+<span class="w">      </span><span class="nt">argv</span><span class="p">:</span>
+<span class="w">         </span><span class="nt">--batch-size</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{batch-size}&#39;</span>
+<span class="w">         </span><span class="nt">--synthetic-data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">         </span><span class="nt">--fixed-batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</pre></div>
+</div>
+</section>
+<section id="system-configuration">
+<h2>System Configuration<a class="headerlink" href="#system-configuration" title="Link to this heading"></a></h2>
+<p>milabench can run benchmarks across multiple nodes, to do so a system configuration needs to be provided.
+This file will define all the nodes accessible to milabench.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">system</span><span class="p">:</span>
+<span class="w">   </span><span class="nt">arch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cuda</span><span class="w">                 </span><span class="c1"># Default arch</span>
+<span class="w">   </span><span class="nt">sshkey</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/.ssh/id_ed25519</span><span class="w">  </span><span class="c1"># sshkey used in remote milabench operations</span>
+<span class="w">   </span><span class="c1"># Docker image to use</span>
+<span class="w">   </span><span class="nt">docker_image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/mila-iqia/milabench:${system.arch}-nightly</span>
+
+<span class="w">   </span><span class="c1"># Nodes list</span>
+<span class="w">   </span><span class="nt">nodes</span><span class="p">:</span>
+<span class="w">      </span><span class="c1"># Alias used to reference the node</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">manager</span>
+<span class="w">        </span><span class="nt">ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.11.11</span>
+<span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5000</span>
+<span class="w">        </span><span class="nt">main</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">     </span><span class="c1"># Use this node as the rank=0 node or not</span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">manager</span><span class="w">  </span><span class="c1"># User to use in remote milabench operations</span>
+
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">node1</span>
+<span class="w">        </span><span class="nt">ip</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.11.12</span>
+<span class="w">        </span><span class="nt">main</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">        </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">username</span>
+</pre></div>
+</div>
+<section id="multinode">
+<h3>Multinode<a class="headerlink" href="#multinode" title="Link to this heading"></a></h3>
+<p>Milabench takes care of sending the commands to all the nodes when appropriate.</p>
+</section>
+</section>
+<section id="methodology">
+<h2>Methodology<a class="headerlink" href="#methodology" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epoch</span><span class="p">):</span>
+   <span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+
+   <span class="c1"># Creation of the iterator from the dataloader is time consuming</span>
+   <span class="c1"># it would get amortized across many batch during real training</span>
+   <span class="c1"># but we want benchmarking to be fast so it is something we cannot afford</span>
+   <span class="n">batch_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">loader</span><span class="p">)</span>
+   <span class="n">total_obs</span> <span class="o">=</span> <span class="mi">0</span>
+
+   <span class="c1"># Avoid sync in the batch loop</span>
+   <span class="n">start</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>
+   <span class="n">start</span><span class="o">.</span><span class="n">record</span><span class="p">()</span>
+
+   <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">batch_iter</span><span class="p">:</span>
+      <span class="n">pred</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+      <span class="n">loss</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+      <span class="n">end</span> <span class="o">=</span> <span class="n">Event</span><span class="p">()</span>                                           <span class="c1"># +-&gt;</span>
+      <span class="n">end</span><span class="o">.</span><span class="n">record</span><span class="p">()</span>                                            <span class="c1"># |</span>
+      <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">),</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()))</span>  <span class="c1"># | Limited overhead</span>
+      <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span> <span class="o">+</span> <span class="n">total_obs</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>                       <span class="c1"># |</span>
+         <span class="k">break</span>                                                <span class="c1"># |</span>
+      <span class="n">start</span> <span class="o">=</span> <span class="n">end</span>                                             <span class="c1"># +-&gt;</span>
+
+   <span class="c1"># Force sync at the end of the epoch                       # +-&gt;</span>
+   <span class="k">for</span> <span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">bs</span><span class="p">,</span> <span class="n">loss</span>  <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>                       <span class="c1"># | Timer is off does not impact perf measures</span>
+      <span class="n">end</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>                                              <span class="c1"># |</span>
+      <span class="n">log</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="n">loss</span><span class="o">.</span><span class="n">item</span><span class="p">())</span>                                   <span class="c1"># |</span>
+      <span class="n">log</span><span class="p">(</span><span class="n">rate</span><span class="o">=</span><span class="n">bs</span> <span class="o">/</span> <span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>                            <span class="c1"># |</span>
+                                                              <span class="c1"># |</span>
+   <span class="n">total_obs</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>                                   <span class="c1"># |</span>
+   <span class="k">if</span> <span class="n">total_obs</span> <span class="o">&gt;=</span> <span class="mi">60</span><span class="p">:</span>                                        <span class="c1"># |</span>
+      <span class="k">raise</span> <span class="n">StopProgram</span><span class="p">()</span>                                     <span class="c1"># +-&gt;</span>
+</pre></div>
+</div>
+<section id="instrumentations">
+<h3>Instrumentations<a class="headerlink" href="#instrumentations" title="Link to this heading"></a></h3>
+<p>To minimize code change, milabench use <a class="reference external" href="https://github.com/breuleux/ptera">ptera</a> to modify
+the code that will be run and insert the necessary hooks to measure performance.</p>
+<p>The hooks are defined inside the <code class="docutils literal notranslate"><span class="pre">voirfile.py</span></code>.
+The example below override the return value of the <code class="docutils literal notranslate"><span class="pre">dataloader()</span></code> function which is defined in the <code class="docutils literal notranslate"><span class="pre">__main__</span></code> module.
+It wraps the original object with a custom wrapper that will time the time between <code class="docutils literal notranslate"><span class="pre">__next__</span></code> calls.</p>
+<p>This allows milabench to integrate benchmarks from code coming from third parties without modifying the code directly.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="n">loader</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;received loader obj&quot;</span><span class="p">)</span>
+   <span class="k">return</span> <span class="n">Wrapper</span><span class="p">(</span><span class="n">loader</span><span class="p">)</span>
+
+<span class="n">probe</span> <span class="o">=</span> <span class="n">ov</span><span class="o">.</span><span class="n">probe</span><span class="p">(</span><span class="s2">&quot;//dataloader() as loader&quot;</span><span class="p">,</span> <span class="n">overridable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">probe</span><span class="p">[</span><span class="s1">&#39;loader&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">override</span><span class="p">(</span><span class="n">wrapper</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="execution-flow">
+<h2>Execution Flow<a class="headerlink" href="#execution-flow" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">milabench</span> <span class="pre">install</span></code></dt><dd><ul>
+<li><p>Creates virtual env for benchmarks and install their dependencies</p></li>
+<li><p>Modify: <code class="docutils literal notranslate"><span class="pre">$MILABENCH_BASE/venv/{bench}</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">milabench</span> <span class="pre">prepare</span></code></dt><dd><ul>
+<li><p>Call the prepare script for each benchmarks to download/generate dataset and download pretrained models</p></li>
+<li><p>Modify: <code class="docutils literal notranslate"><span class="pre">$MILABENCH_BASE/data/{dataset}</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">milabench</span> <span class="pre">run</span></code></dt><dd><ul>
+<li><p>Execute each benchmark</p></li>
+<li><p>Modify: <code class="docutils literal notranslate"><span class="pre">$MILABENCH_BASE/runs/{runame}.{time}</span></code></p></li>
+<li><dl class="simple">
+<dt>Steps</dt><dd><ul>
+<li><p><strong>init</strong>: Voir has initialized itself. You can add command-line arguments here.</p></li>
+<li><p><strong>parse_args</strong>: The command-line arguments have been parsed.</p></li>
+<li><p><strong>load_script</strong>: The script has been loaded: its imports have been done, its functions defined,
+but the top level statements have not been executed. You can perform some
+manipulations prior to the script running.</p></li>
+<li><p><strong>run_script</strong>: the script will start to run now</p></li>
+<li><p><strong>finalize</strong>: tearing down</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</section>
+<section id="execution-plan">
+<h2>Execution Plan<a class="headerlink" href="#execution-plan" title="Link to this heading"></a></h2>
+<ul>
+<li><p>milabench main process
+* gather metrics from benchmark processes, save them to file
+* manages the benchmarks (timeout etc…)</p>
+<ul>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">per_gpu</span></code> is used, milabench will launch one process per GPU (sets <code class="docutils literal notranslate"><span class="pre">CUDA_VISIBLE_DEVCES</span></code>)
+* each processes log their GPU data
+* might spawn a monitor process</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>will init pynvml</p></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><p>dataloader will also spawn process workers
+* usually not using GPU</p></li>
+</ul>
+</li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">njobs</span></code> is used, milabench will launch a single process (torchrun)
+* torchrun in turn will spawn one process per GPU</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>RANK 0 is used for logging</p></li>
+<li><p>RANK 0 might spawn a monitor process
+* will init pynvml</p></li>
+<li><p>dataloader will also spawn process workers
+* usually not using GPU</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">per_gpu</span></code>: used for mono gpu benchmarks, spawn one process per gpu and run the same benchmark</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_torchvision</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">inherits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_defaults</span>
+<span class="w">  </span><span class="nt">definition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../benchmarks/torchvision</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torchvision</span>
+<span class="w">  </span><span class="nt">install_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torch</span>
+<span class="w">  </span><span class="nt">plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">per_gpu</span>
+</pre></div>
+</div>
+<p>Milabench will essentially execute something akin to below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;fp16&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;====&quot;</span>
+<span class="nb">time</span><span class="w"> </span><span class="o">(</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">4</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">6</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">7</span><span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/activator<span class="w"> </span><span class="nv">$BASE</span>/venv/torch<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/flops/main.py<span class="w"> </span>--number<span class="w"> </span><span class="m">30</span><span class="w"> </span>--repeat<span class="w"> </span><span class="m">90</span><span class="w"> </span>--m<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--n<span class="w"> </span><span class="m">8192</span><span class="w"> </span>--dtype<span class="w"> </span>fp16<span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nb">wait</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">njobs</span></code> used to launch a single jobs that can see all the gpus.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">_torchvision_ddp</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">inherits</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_defaults</span>
+<span class="w">  </span><span class="nt">definition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../benchmarks/torchvision_ddp</span>
+<span class="w">  </span><span class="nt">group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torchvision</span>
+<span class="w">  </span><span class="nt">install_group</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">torch</span>
+<span class="w">  </span><span class="nt">plan</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">method</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">njobs</span>
+<span class="w">    </span><span class="nt">n</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+</pre></div>
+</div>
+<p>Milabench will essentially execute something akin to below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;---&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;lightning-gpus&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;==============&quot;</span>
+<span class="nb">time</span><span class="w"> </span><span class="o">(</span>
+<span class="w">  </span><span class="nv">$BASE</span>/venv/torch/bin/benchrun<span class="w"> </span>--nnodes<span class="o">=</span><span class="m">1</span><span class="w"> </span>--rdzv-backend<span class="o">=</span>c10d<span class="w"> </span>--rdzv-endpoint<span class="o">=</span><span class="m">127</span>.0.0.1:29400<span class="w"> </span>--master-addr<span class="o">=</span><span class="m">127</span>.0.0.1<span class="w"> </span>--master-port<span class="o">=</span><span class="m">29400</span><span class="w"> </span>--nproc-per-node<span class="o">=</span><span class="m">8</span><span class="w"> </span>--no-python<span class="w"> </span>--<span class="w"> </span>python<span class="w"> </span><span class="nv">$SRC</span>/milabench/benchmarks/lightning/main.py<span class="w"> </span>--epochs<span class="w"> </span><span class="m">10</span><span class="w"> </span>--num-workers<span class="w"> </span><span class="m">8</span><span class="w"> </span>--loader<span class="w"> </span>pytorch<span class="w"> </span>--data<span class="w"> </span><span class="nv">$BASE</span>/data/FakeImageNet<span class="w"> </span>--model<span class="w"> </span>resnet152<span class="w"> </span>--batch-size<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">  </span><span class="nb">wait</span>
+<span class="o">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../GettingStarted/docker.html" class="btn btn-neutral float-left" title="Docker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="design.html" class="btn btn-neutral float-right" title="Design" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Mila IDT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
