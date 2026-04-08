@@ -1,0 +1,21 @@
+{
+  "config_path": "/tmp/milabench/benchmarks/purejaxrl/dev.yaml",
+  "python_bin": "/tmp/results/venv/torch/bin/python",
+  "main_path": "/tmp/milabench/benchmarks/purejaxrl/main.py",
+  "experiments": {
+    "control": "dqn-fp16",
+    "b32768": "dqn-fp16-b32768",
+    "b16384": "dqn-fp16-b16384",
+    "b8192": "dqn-fp16-b8192"
+  },
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "env": {
+    "PUREJAXRL_DQN_SCAN_UNROLL": "4"
+  }
+}

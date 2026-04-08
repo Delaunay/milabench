@@ -2,6 +2,8 @@
 PureJaxRL version of CleanRL's DQN: https://github.com/vwxyzjn/cleanrl/blob/master/cleanrl/dqn_jax.py
 """
 from dataclasses import dataclass
+import math
+import os
 import time
 
 import jax
@@ -49,12 +51,35 @@ class CustomTrainState(TrainState):
 
 
 def make_train(config):
-    config["NUM_UPDATES"] = config["TOTAL_TIMESTEPS"] // config["NUM_ENVS"]
+    return make_train_with_metrics(config)
 
-    from benchmate.timings import StepTimer
-    from benchmate.jaxmem import memory_peak_fetcher
-    step_timer = StepTimer(give_push())
-    fetch_memory_peak = memory_peak_fetcher()
+
+def make_train_with_metrics(
+    config,
+    step_timer=None,
+    fetch_memory_peak=None,
+    profiler_window=None,
+):
+    scan_unroll = max(int(os.getenv("PUREJAXRL_DQN_SCAN_UNROLL", "1")), 1)
+    config["NUM_UPDATES"] = config["TOTAL_TIMESTEPS"] // config["NUM_ENVS"]
+    actual_learn_interval = math.lcm(config["NUM_ENVS"], config["TRAINING_INTERVAL"])
+    actual_target_interval = math.lcm(
+        config["NUM_ENVS"], config["TARGET_UPDATE_INTERVAL"]
+    )
+    fold_target_update_into_learn = (
+        os.getenv("PUREJAXRL_DQN_FOLD_TARGET_UPDATE", "0") != "0"
+        and actual_target_interval % actual_learn_interval == 0
+    )
+
+    if step_timer is None:
+        from benchmate.timings import StepTimer
+
+        step_timer = StepTimer(give_push())
+
+    if fetch_memory_peak is None:
+        from benchmate.jaxmem import memory_peak_fetcher
+
+        fetch_memory_peak = memory_peak_fetcher()
 
     basic_env, env_params = gymnax.make(config["ENV_NAME"])
     env = FlattenObservationWrapper(basic_env)
@@ -68,10 +93,15 @@ def make_train(config):
     )(jax.random.split(rng, n_envs), env_state, action, env_params)
 
     def train(rng):
+        # Keep setup randomness stable per configured seed so control/candidate
+        # comparisons do not depend on incidental setup order.
+        env_reset_rng = jax.random.fold_in(rng, 0)
+        buffer_init_rng = jax.random.fold_in(rng, 1)
+        network_init_rng = jax.random.fold_in(rng, 2)
+        rollout_rng = jax.random.fold_in(rng, 3)
 
         # INIT ENV
-        rng, _rng = jax.random.split(rng)
-        init_obs, env_state = vmap_reset(config["NUM_ENVS"])(_rng)
+        init_obs, env_state = vmap_reset(config["NUM_ENVS"])(env_reset_rng)
 
         # INIT BUFFER
         buffer = fbx.make_flat_buffer(
@@ -87,18 +117,18 @@ def make_train(config):
             sample=jax.jit(buffer.sample),
             can_sample=jax.jit(buffer.can_sample),
         )
-        rng = jax.random.PRNGKey(0)  # use a dummy rng here
-        _action = basic_env.action_space().sample(rng)
-        _, _env_state = env.reset(rng, env_params)
-        _obs, _, _reward, _done, _ = env.step(rng, _env_state, _action, env_params)
+        _action = basic_env.action_space().sample(buffer_init_rng)
+        _, _env_state = env.reset(buffer_init_rng, env_params)
+        _obs, _, _reward, _done, _ = env.step(
+            buffer_init_rng, _env_state, _action, env_params
+        )
         _timestep = TimeStep(obs=_obs, action=_action, reward=_reward, done=_done)
         buffer_state = buffer.init(_timestep)
 
         # INIT NETWORK AND OPTIMIZER
         network = QNetwork(action_dim=env.action_space(env_params).n, dtype=config["DTYPE"])
-        rng, _rng = jax.random.split(rng)
         init_x = jnp.zeros(env.observation_space(env_params).shape)
-        network_params = network.init(_rng, init_x)
+        network_params = network.init(network_init_rng, init_x)
 
         def linear_schedule(count):
             frac = 1.0 - (count / config["NUM_UPDATES"])
@@ -199,6 +229,21 @@ def make_train(config):
                     train_state = train_state.apply_gradients(grads=grads)
                     train_state = train_state.replace(n_updates=train_state.n_updates + 1)
 
+                if fold_target_update_into_learn:
+                    with jax.named_scope("target_network_update"):
+                        train_state = jax.lax.cond(
+                            train_state.timesteps % config["TARGET_UPDATE_INTERVAL"] == 0,
+                            lambda train_state: train_state.replace(
+                                target_network_params=optax.incremental_update(
+                                    train_state.params,
+                                    train_state.target_network_params,
+                                    config["TAU"],
+                                )
+                            ),
+                            lambda train_state: train_state,
+                            operand=train_state,
+                        )
+
                 return train_state, loss
 
             rng, _rng = jax.random.split(rng)
@@ -220,19 +265,20 @@ def make_train(config):
                     _rng,
                 )
 
-            with jax.named_scope("target_network_update"):
-                train_state = jax.lax.cond(
-                    train_state.timesteps % config["TARGET_UPDATE_INTERVAL"] == 0,
-                    lambda train_state: train_state.replace(
-                        target_network_params=optax.incremental_update(
-                            train_state.params,
-                            train_state.target_network_params,
-                            config["TAU"],
-                        )
-                    ),
-                    lambda train_state: train_state,
-                    operand=train_state,
-                )
+            if not fold_target_update_into_learn:
+                with jax.named_scope("target_network_update"):
+                    train_state = jax.lax.cond(
+                        train_state.timesteps % config["TARGET_UPDATE_INTERVAL"] == 0,
+                        lambda train_state: train_state.replace(
+                            target_network_params=optax.incremental_update(
+                                train_state.params,
+                                train_state.target_network_params,
+                                config["TAU"],
+                            )
+                        ),
+                        lambda train_state: train_state,
+                        operand=train_state,
+                    )
 
             metrics = {
                 "timesteps": train_state.timesteps,
@@ -242,15 +288,22 @@ def make_train(config):
             }
 
             def callback(metrics):
+                metric_time = time.time()
                 returns = metrics["returns"].item()
                 loss = metrics["loss"].block_until_ready().item()
                 delta = metrics["timesteps"] - step_timer.timesteps
                 step_timer.timesteps = metrics["timesteps"]
                 
                 step_timer.step(delta.item())
-                step_timer.log(returns=returns, loss=loss)
-                step_timer.log(memory_peak=fetch_memory_peak(), units="MiB")
-                step_timer.end()
+                step_timer.log(timestamp=metric_time, returns=returns, loss=loss)
+                step_timer.log(
+                    timestamp=metric_time,
+                    memory_peak=fetch_memory_peak(),
+                    units="MiB",
+                )
+                step_timer.end(timestamp=metric_time)
+                if profiler_window is not None:
+                    profiler_window.maybe_advance(step_timer.n_obs)
 
             def _do_callback(_metrics):
                 jax.debug.callback(callback, _metrics)
@@ -268,11 +321,14 @@ def make_train(config):
             return runner_state, metrics
 
         # train
-        rng, _rng = jax.random.split(rng)
-        runner_state = (train_state, buffer_state, env_state, init_obs, _rng)
+        runner_state = (train_state, buffer_state, env_state, init_obs, rollout_rng)
 
         runner_state, metrics = jax.lax.scan(
-            _update_step, runner_state, None, config["NUM_UPDATES"]
+            _update_step,
+            runner_state,
+            None,
+            config["NUM_UPDATES"],
+            unroll=scan_unroll,
         )
         return {"runner_state": runner_state, "metrics": metrics}
 
@@ -378,16 +434,40 @@ def main(args: Arguments = None):
         "DTYPE": _DTYPE_MAP[args.dtype],
     }
 
+    from benchmate.timings import StepTimer
+    from benchmate.jaxmem import memory_peak_fetcher
+    from benchmate.profiler import JaxProfilerWindow
+
     rng = jax.random.PRNGKey(config["SEED"])
     rngs = jax.random.split(rng, config["NUM_SEEDS"])
-    train_vjit = jax.jit(jax.vmap(make_train(config), in_axes=(0,)))
+    step_timer = StepTimer(give_push())
+    fetch_memory_peak = memory_peak_fetcher()
+    profiler_window = JaxProfilerWindow()
+
+    train_vjit = jax.jit(
+        jax.vmap(
+            make_train_with_metrics(
+                config,
+                step_timer=step_timer,
+                fetch_memory_peak=fetch_memory_peak,
+                profiler_window=profiler_window,
+            ),
+            in_axes=(0,),
+        )
+    )
     compiled_fn = train_vjit.lower(rngs).compile()
+
+    # Exclude JIT compilation from the first reported throughput sample.
+    step_timer.reset()
 
     from benchmate.monitor import bench_monitor
     from benchmate.profiler import jax_profiler
     with bench_monitor():
-        with jax_profiler():
-            outs = jax.block_until_ready(compiled_fn(rngs))
+        try:
+            with jax_profiler():
+                outs = jax.block_until_ready(compiled_fn(rngs))
+        finally:
+            profiler_window.close()
 
 
 if __name__ == "__main__":

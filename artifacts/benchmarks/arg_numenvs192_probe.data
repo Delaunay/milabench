@@ -1,0 +1,244 @@
+{"event": "config", "data": {"run_name": "arg_numenvs192_probe", "system": {"arch": "cuda", "sshkey": null, "nodes": [{"name": "local", "ip": "127.0.0.1", "sshport": 22, "user": "delaunap", "main": true, "hostname": "cn-l007.server.mila.quebec", "local": true}], "gpu": {"capacity": "46068 MiB", "count": 1}, "run_name": "arg_numenvs192_probe", "base": "/tmp/results", "dirs": {"venv": "/tmp/results/venv", "data": "/tmp/results/data", "runs": "/tmp/results/runs", "extra": "/tmp/results/extra", "cache": "/tmp/results/cache"}, "self": {"name": "local", "ip": "127.0.0.1", "sshport": 22, "user": "delaunap", "main": true, "hostname": "cn-l007.server.mila.quebec", "local": true}}, "group": "dqn", "install_group": "torch", "install_variant": "unpinned", "enabled": true, "capabilities": {"nodes": 1}, "dirs": {"venv": "/tmp/results/venv/torch", "data": "/tmp/results/data", "runs": "/tmp/results/runs", "extra": "/tmp/results/extra/dqn", "cache": "/tmp/results/cache"}, "definition": "/tmp/milabench/benchmarks/purejaxrl", "plan": {"method": "per_gpu"}, "config_base": "/tmp/milabench/benchmarks/purejaxrl", "config_file": "/tmp/milabench/benchmarks/purejaxrl/dev_arg_numenvs192.yaml", "tags": [], "argv": {"dqn": true, "--num_envs": 192, "--buffer_batch_size": 65536, "--training_interval": 10, "--learning_starts": 10000, "--buffer_size": 131072, "--env_name": "SpaceInvaders-MinAtar", "--total_timesteps": 2000000}, "name": "dqn", "tag": ["dqn", "D0"], "device": 0, "devices": [0], "env": {"CUDA_VISIBLE_DEVICES": "0"}}, "pipe": null}
+{"event": "meta", "data": {"cpu": {"count": 48, "brand": "Intel(R) Xeon(R) Gold 5418Y"}, "os": {"sysname": "Linux", "nodename": "cn-l007.server.mila.quebec", "release": "5.15.0-173-generic", "version": "#183-Ubuntu SMP Fri Mar 6 13:29:34 UTC 2026", "machine": "x86_64"}, "accelerators": {"arch": "cuda", "gpus": {"0": {"minor_number": "2", "device": 0, "product": "NVIDIA L40S", "memory": {"used": 358.9375, "total": 46068.0}, "utilization": {"compute": 0.0, "memory": 0}, "temperature": 33.0, "power": 69.937, "selection_variable": "CUDA_VISIBLE_DEVICES"}}, "system": {"CUDA_DRIVER": 13000, "DRIVER_VERSION": "580.95.05", "HIC_VERSION": [], "NVML_VERSION": "13.580.95.05"}}, "date": 1775678252.745414, "milabench": {"tag": "v1.3.2", "commit": "2e042115cee0c7376adb41e82c0679fe3026aae6", "date": "2026-04-05 07:11:00 -0400"}, "pytorch": {"torch": "2.10.0+cu130", "compiler": "GCC 13.3", "cpp": "C++ Version: 201703", "intel": "Intel(R) oneAPI Math Kernel Library Version 2024.2-Product Build 20240605 for Intel(R) 64 architecture applications", "mkl": "OpenMP 201511 (a.k.a. OpenMP 4.5)", "openmp": "OpenMP 201511 (a.k.a. OpenMP 4.5)", "lapack": "LAPACK is enabled (usually provided by MKL)", "nnpack": "NNPACK is enabled", "cpu": "CPU capability usage: AVX512", "build_settings": {"BLAS_INFO": "mkl", "BUILD_TYPE": "Release", "COMMIT_SHA": "449b1768410104d3ed79d3bcfe4ba1d65c7f22c0", "CUDA_VERSION": "13.0", "CUDNN_VERSION": "9.15.1", "CXX_COMPILER": "/opt/rh/gcc-toolset-13/root/usr/bin/c++", "CXX_FLAGS": "-fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DLIBKINETO_NOXPUPTI=ON -DUSE_FBGEMM -DUSE_FBGEMM_GENAI -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -DC10_NODEPRECATED -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=range-loop-construct -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-unknown-pragmas -Wno-unused-parameter -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=old-style-cast -faligned-new -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-dangling-reference -Wno-error=dangling-reference -Wno-stringop-overflow", "LAPACK_INFO": "mkl", "PERF_WITH_AVX": "1", "PERF_WITH_AVX2": "1", "TORCH_VERSION": "2.10.0", "USE_CUDA": "ON", "USE_CUDNN": "ON", "USE_CUSPARSELT": "1", "USE_GFLAGS": "OFF", "USE_GLOG": "OFF", "USE_GLOO": "ON", "USE_MKL": "ON", "USE_MKLDNN": "ON", "USE_MPI": "OFF", "USE_NCCL": "1", "USE_NNPACK": "ON", "USE_OPENMP": "ON", "USE_ROCM": "OFF", "USE_ROCM_KERNEL_ASSERT": "OFF", "USE_XCCL": "OFF", "USE_XPU": "OFF"}}, "overrides": {"multirun.cache": null, "copy.method": null, "copy.nproc": 32, "copy.compressed": 0, "dirs.venv": "${system.base}/venv", "dirs.data": "${system.base}/data", "dirs.runs": "${system.base}/runs", "dirs.extra": "${system.base}/extra", "dirs.cache": "${system.base}/cache", "sizer.batch_size": null, "sizer.add": null, "sizer.mult": null, "sizer.auto": 0, "sizer.multiple": 8, "sizer.power": null, "sizer.optimized": null, "sizer.capacity": null, "sizer.save": null, "sizer.config": null, "cpu.enabled": false, "cpu.total_count": null, "cpu.max": 16, "cpu.min": 2, "cpu.reserved_cores": 0, "cpu.n_workers": null, "base": "/tmp/results"}}, "pipe": null}
+{"event": "start", "data": {"command": ["/tmp/results/venv/torch/bin/voir", "/tmp/milabench/benchmarks/purejaxrl/main.py", "dqn", "--num_envs", "192", "--buffer_batch_size", "65536", "--training_interval", "10", "--learning_starts", "10000", "--buffer_size", "131072", "--env_name", "SpaceInvaders-MinAtar", "--total_timesteps", "2000000"], "time": 1775663852.761186}, "pipe": null}
+{"event": "line", "data": "/tmp/results/venv/torch/lib/python3.12/site-packages/voir/cli.py:104: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.\n", "pipe": "stderr"}
+{"event": "line", "data": "  import pkg_resources\n", "pipe": "stderr"}
+{"event": "phase", "data": {"name": "init"}, "pipe": "data"}
+{"event": "phase", "data": {"name": "parse_args"}, "pipe": "data"}
+{"event": "phase", "data": {"name": "load_script"}, "pipe": "data"}
+{"event": "line", "data": "Failed to import warp: No module named 'warp'\n", "pipe": "stdout"}
+{"event": "line", "data": "Failed to import mujoco_warp: No module named 'warp'\n", "pipe": "stdout"}
+{"event": "phase", "data": {"name": "run_script"}, "pipe": "data"}
+{"event": "line", "data": "/tmp/results/venv/torch/lib/python3.12/site-packages/jax/_src/ops/scatter.py:104: FutureWarning: scatter inputs have incompatible types: cannot safely cast value from dtype=int32 to dtype=bool with jax_numpy_dtype_promotion=standard. In future JAX releases this will result in an error.\n", "pipe": "stderr"}
+{"event": "line", "data": "  warnings.warn(\n", "pipe": "stderr"}
+{"event": "line", "data": "/tmp/results/venv/torch/lib/python3.12/site-packages/jax/_src/ops/scatter.py:104: FutureWarning: scatter inputs have incompatible types: cannot safely cast value from dtype=float32 to dtype=bool with jax_numpy_dtype_promotion=standard. In future JAX releases this will result in an error.\n", "pipe": "stderr"}
+{"event": "line", "data": "  warnings.warn(\n", "pipe": "stderr"}
+{"event": "line", "data": "/tmp/results/venv/torch/lib/python3.12/site-packages/jax/_src/numpy/array_methods.py:125: UserWarning: Explicitly requested dtype int64 requested in astype is not available, and will be truncated to dtype int32. To enable more dtypes, set the jax_enable_x64 configuration option or the JAX_ENABLE_X64 shell environment variable. See https://github.com/jax-ml/jax#current-gotchas for more.\n", "pipe": "stderr"}
+{"event": "line", "data": "  return lax_numpy.astype(self, dtype, copy=copy, device=device)\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:40.695745 2425047 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.18 = f32[65536,84]{1,0} fusion(add.1174, get-tuple-element.181), kind=kCustom, calls=gemm_fusion_dot_general.18_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"8\",\"output_tiles\":[{\"sizes\":[\"128\",\"128\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:40.695820 2425047 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.18_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.1 = f32[65536,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4879 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  broadcast.2733 = f32[65536,120]{1,0} broadcast(constant_4879), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.172 = f32[65536,120]{1,0} maximum(parameter_0.1, broadcast.2733)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.1 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.30 = f32[65536,84]{1,0} dot(max.172, parameter_1.1), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"32\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:41.810839 2425042 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.17 = f32[65536,120]{1,0} fusion(bitcast.355, get-tuple-element.179), kind=kCustom, calls=gemm_fusion_dot_general.17_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"2\",\"output_tiles\":[{\"sizes\":[\"64\",\"32\"]}],\"num_ctas\":1,\"num_stages\":3,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:41.810953 2425042 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.17_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0 = f32[65536,600]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1 = f32[600,120]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.29 = f32[65536,120]{1,0} dot(parameter_0, parameter_1), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"128\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:41.884660 2425042 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.17 = f32[65536,120]{1,0} fusion(bitcast.355, get-tuple-element.179), kind=kCustom, calls=gemm_fusion_dot_general.17_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"4\",\"output_tiles\":[{\"sizes\":[\"64\",\"128\"]}],\"num_ctas\":1,\"num_stages\":3,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:41.884733 2425042 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.17_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0 = f32[65536,600]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1 = f32[600,120]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.29 = f32[65536,120]{1,0} dot(parameter_0, parameter_1), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"64\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.109404 2425045 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.17 = f32[65536,120]{1,0} fusion(bitcast.355, get-tuple-element.179), kind=kCustom, calls=gemm_fusion_dot_general.17_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"4\",\"output_tiles\":[{\"sizes\":[\"64\",\"64\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.109462 2425045 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.17_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0 = f32[65536,600]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1 = f32[600,120]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.29 = f32[65536,120]{1,0} dot(parameter_0, parameter_1), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"64\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.220351 2425044 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.13 = f32[192,84]{1,0} fusion(add.6781, get-tuple-element.1682), kind=kCustom, calls=gemm_fusion_dot_general.13_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"4\",\"output_tiles\":[{\"sizes\":[\"64\",\"64\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.220410 2425044 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.13_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.12 = f32[192,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4885 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.178 = f32[192,120]{1,0} broadcast(constant_4885), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.179 = f32[192,120]{1,0} maximum(parameter_0.12, max.178)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.12 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.38 = f32[192,84]{1,0} dot(max.179, parameter_1.12), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"64\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.253611 2425042 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.13 = f32[192,84]{1,0} fusion(add.6781, get-tuple-element.1682), kind=kCustom, calls=gemm_fusion_dot_general.13_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"4\",\"output_tiles\":[{\"sizes\":[\"32\",\"256\"]}],\"num_ctas\":1,\"num_stages\":3,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.253662 2425042 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.13_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.12 = f32[192,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4885 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.178 = f32[192,120]{1,0} broadcast(constant_4885), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.179 = f32[192,120]{1,0} maximum(parameter_0.12, max.178)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.12 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.38 = f32[192,84]{1,0} dot(max.179, parameter_1.12), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"32\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.337469 2425042 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.13 = f32[192,84]{1,0} fusion(add.6781, get-tuple-element.1682), kind=kCustom, calls=gemm_fusion_dot_general.13_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"8\",\"output_tiles\":[{\"sizes\":[\"128\",\"256\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.337540 2425042 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.13_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.12 = f32[192,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4885 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.178 = f32[192,120]{1,0} broadcast(constant_4885), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.179 = f32[192,120]{1,0} maximum(parameter_0.12, max.178)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.12 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.38 = f32[192,84]{1,0} dot(max.179, parameter_1.12), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"32\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.535087 2425047 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.17 = f32[65536,120]{1,0} fusion(bitcast.355, get-tuple-element.179), kind=kCustom, calls=gemm_fusion_dot_general.17_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"8\",\"output_tiles\":[{\"sizes\":[\"128\",\"128\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.535144 2425047 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.17_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0 = f32[65536,600]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1 = f32[600,120]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.29 = f32[65536,120]{1,0} dot(parameter_0, parameter_1), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"32\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.843879 2425047 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.13 = f32[192,84]{1,0} fusion(add.6781, get-tuple-element.1682), kind=kCustom, calls=gemm_fusion_dot_general.13_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"4\",\"output_tiles\":[{\"sizes\":[\"64\",\"128\"]}],\"num_ctas\":1,\"num_stages\":3,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.843958 2425047 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.13_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.12 = f32[192,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4885 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.178 = f32[192,120]{1,0} broadcast(constant_4885), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.179 = f32[192,120]{1,0} maximum(parameter_0.12, max.178)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.12 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.38 = f32[192,84]{1,0} dot(max.179, parameter_1.12), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"64\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.932185 2425047 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.13 = f32[192,84]{1,0} fusion(add.6781, get-tuple-element.1682), kind=kCustom, calls=gemm_fusion_dot_general.13_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"4\",\"output_tiles\":[{\"sizes\":[\"64\",\"256\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:42.932275 2425047 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.13_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.12 = f32[192,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4885 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.178 = f32[192,120]{1,0} broadcast(constant_4885), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.179 = f32[192,120]{1,0} maximum(parameter_0.12, max.178)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.12 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.38 = f32[192,84]{1,0} dot(max.179, parameter_1.12), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"32\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:43.038166 2425047 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.13 = f32[192,84]{1,0} fusion(add.6781, get-tuple-element.1682), kind=kCustom, calls=gemm_fusion_dot_general.13_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"8\",\"output_tiles\":[{\"sizes\":[\"128\",\"256\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:43.038282 2425047 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.13_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0.12 = f32[192,120]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_4885 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.178 = f32[192,120]{1,0} broadcast(constant_4885), dimensions={}\n", "pipe": "stderr"}
+{"event": "line", "data": "  max.179 = f32[192,120]{1,0} maximum(parameter_0.12, max.178)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1.12 = f32[120,84]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot_general.38 = f32[192,84]{1,0} dot(max.179, parameter_1.12), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={\"sizes\":[\"64\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:43.227580 2425043 xtile_compiler.cc:399] Fusion: gemm_fusion_dot_general.17 = f32[4,65536,120]{2,1,0} fusion(bitcast.355, get-tuple-element.179), kind=kCustom, calls=gemm_fusion_dot_general.17_computation.clone, backend_config={\"operation_queue_id\":\"0\",\"wait_on_operation_queues\":[],\"fusion_backend_config\":{\"kind\":\"__triton_nested_gemm_fusion\",\"block_level_fusion_config\":{\"num_warps\":\"8\",\"output_tiles\":[{\"sizes\":[\"1\",\"128\",\"128\"]}],\"num_ctas\":1,\"num_stages\":4,\"is_tma_allowed\":false,\"is_warp_specialization_allowed\":false}},\"force_earliest_schedule\":false,\"reification_cost\":[],\"device_type\":\"DEVICE_TYPE_INVALID\"}\n", "pipe": "stderr"}
+{"event": "line", "data": "E0408 11:57:43.227638 2425043 xtile_compiler.cc:401] Computation: gemm_fusion_dot_general.17_computation.clone {\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_0 = f32[65536,600]{1,0} parameter(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  pad = f32[65536,608]{1,0} pad(parameter_0, constant), padding=0_0x0_8\n", "pipe": "stderr"}
+{"event": "line", "data": "  bitcast = f32[65536,4,152]{2,1,0} bitcast(pad)\n", "pipe": "stderr"}
+{"event": "line", "data": "  parameter_1 = f32[600,120]{1,0} parameter(1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  constant_1 = f32[] constant(0)\n", "pipe": "stderr"}
+{"event": "line", "data": "  pad.1 = f32[608,120]{1,0} pad(parameter_1, constant_1), padding=0_8x0_0\n", "pipe": "stderr"}
+{"event": "line", "data": "  bitcast.1 = f32[4,152,120]{2,1,0} bitcast(pad.1)\n", "pipe": "stderr"}
+{"event": "line", "data": "  ROOT dot = f32[4,65536,120]{2,1,0} dot(bitcast, bitcast.1), lhs_batch_dims={1}, lhs_contracting_dims={2}, rhs_batch_dims={0}, rhs_contracting_dims={1}, backend_config={\"sizes\":[\"32\"]}\n", "pipe": "stderr"}
+{"event": "line", "data": "}\n", "pipe": "stderr"}
+{"event": "data", "data": {"loss": 0.0}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663859.7448094, "gpudata": {"0": {"memory": [847.5625, 46068.0], "load": 0.0, "temperature": 34.0, "power": 105.336}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663860.7504678, "gpudata": {"0": {"memory": [847.5625, 46068.0], "load": 0.0, "temperature": 34.0, "power": 105.376}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663859.7447402, "process": {"pid": 2424975, "load": 0.0, "num": 19, "read_bytes": 0.0, "write_bytes": 184320.0, "read_chars": 100450115.0, "write_chars": 131401.0, "memory": [1277411328.0, 1081689415680]}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663861.7508152, "gpudata": {"0": {"memory": [1103.5625, 46068.0], "load": 0.01, "temperature": 34.0, "power": 110.708}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663861.8002117, "process": {"pid": 2424975, "load": 0.0, "num": 19, "read_bytes": 0.0, "write_bytes": 1675264.0, "read_chars": 103082790.0, "write_chars": 1459518.0, "memory": [1516437504.0, 1081689415680]}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663862.8250036, "gpudata": {"0": {"memory": [1103.5625, 46068.0], "load": 0.01, "temperature": 34.0, "power": 105.828}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663863.8262422, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.02, "temperature": 34.0, "power": 107.755}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663863.8135102, "process": {"pid": 2424975, "load": 0.0, "num": 1, "read_bytes": 0.0, "write_bytes": 4120576.0, "read_chars": 107128419.0, "write_chars": 3738815.0, "memory": [1555120128.0, 1081689415680]}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663864.826537, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.0, "temperature": 34.0, "power": 106.175}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663865.8269792, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.0, "temperature": 34.0, "power": 105.901}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663866.8273852, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.01, "temperature": 35.0, "power": 107.157}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663865.8268173, "process": {"pid": 2424975, "load": 0.0, "num": 19, "read_bytes": 0.0, "write_bytes": 5246976.0, "read_chars": 109735426.0, "write_chars": 4813203.0, "memory": [1696481280.0, 1081689415680]}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663867.8277159, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.0, "temperature": 35.0, "power": 105.675}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663868.8280098, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.0, "temperature": 35.0, "power": 105.707}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663867.8401365, "process": {"pid": 2424975, "load": 0.0, "num": 17, "read_bytes": 0.0, "write_bytes": 5885952.0, "read_chars": 110931698.0, "write_chars": 5291571.0, "memory": [1741025280.0, 1081689415680]}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663869.828404, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.0, "temperature": 35.0, "power": 105.71}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663870.8287485, "gpudata": {"0": {"memory": [1359.5625, 46068.0], "load": 0.0, "temperature": 35.0, "power": 105.713}}}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663869.8534174, "process": {"pid": 2424975, "load": 0.0, "num": 17, "read_bytes": 0.0, "write_bytes": 5885952.0, "read_chars": 111100254.0, "write_chars": 5291571.0, "memory": [1742929920.0, 1081689415680]}}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 302526.4782395146, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [1, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [0, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.0}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 562947.7897802708, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [2, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [1, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.1013723611831665}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 675706.6838653726, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [3, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [2, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.0768711194396019}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 319006.3841778016, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [4, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [3, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.07293948531150818}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 317348.12059173244, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [5, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [4, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.06948789954185486}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315871.9743550208, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [6, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [5, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.06190859153866768}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315987.0653566238, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [7, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [6, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.05708090588450432}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 316091.6949677014, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [8, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [7, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.05327990651130676}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315849.4310519633, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [9, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [8, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.04878014698624611}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 316343.4287546554, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [10, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [9, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.04569123685359955}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 316579.76042484504, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [11, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [10, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.03935283422470093}, "pipe": "data"}
+{"event": "data", "data": {"task": "main", "time": 1775663871.8290153, "gpudata": {"0": {"memory": [2895.5625, 46068.0], "load": 0.96, "temperature": 39.0, "power": 192.42}}}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315342.85323578556, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [12, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [11, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.03483247756958008}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315929.5631146815, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [13, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [12, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.031099647283554077}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315947.55561671034, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [14, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [13, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "line", "data": "\u001b[7;227461736;223:20226=61696>222<202274696=65223:20313737353636333837322>3035383336342<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323839352>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2033392>302<2022706?776572223:203230312>3133377=7=7=z", "pipe": "stdout"}
+{"event": "line", "data": "\u001b[0:z", "pipe": "stdout"}
+{"event": "data", "data": {"loss": 0.030489789322018623}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 316017.0184124634, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [15, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [14, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.030786441639065742}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 316008.9792237812, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [16, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [15, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.03210101276636124}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 316115.11821423087, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [17, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [16, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.03614526242017746}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315992.6695886606, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [18, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [17, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.042681436985731125}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315882.75473647896, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [19, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [18, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.04577668011188507}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315860.01002887683, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [20, 20]}, "pipe": "data"}
+{"event": "data", "data": {"progress": [19, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "data", "data": {"loss": 0.04502851516008377}, "pipe": "data"}
+{"event": "data", "data": {"memory_peak": 637.94580078125, "units": "MiB"}, "pipe": "data"}
+{"event": "data", "data": {"rate": 315933.6600403833, "units": "items/s", "task": "train"}, "pipe": "data"}
+{"event": "data", "data": {"task": "early_stop", "progress": [21, 20]}, "pipe": "data"}
+{"event": "stop", "data": null, "pipe": "data"}
+{"event": "data", "data": {"progress": [20, 65], "task": "early_stop"}, "pipe": "data"}
+{"event": "end", "data": {"command": ["/tmp/results/venv/torch/bin/voir", "/tmp/milabench/benchmarks/purejaxrl/main.py", "dqn", "--num_envs", "192", "--buffer_batch_size", "65536", "--training_interval", "10", "--learning_starts", "10000", "--buffer_size", "131072", "--env_name", "SpaceInvaders-MinAtar", "--total_timesteps", "2000000"], "time": 1775663873.5825944, "return_code": -15}, "pipe": null}

@@ -292,13 +292,18 @@ def make_train(config):
             }
 
             def callback(info):
+                metric_time = time.time()
                 total_loss, (value_loss, loss_actor, entropy) = info["loss"]
                 loss = total_loss.mean().item()
 
                 step_timer.step(config["NUM_ENVS"] * config["NUM_STEPS"])
-                step_timer.log(loss=loss)
-                step_timer.log(memory_peak=fetch_memory_peak(), units="MiB")
-                step_timer.end()
+                step_timer.log(timestamp=metric_time, loss=loss)
+                step_timer.log(
+                    timestamp=metric_time,
+                    memory_peak=fetch_memory_peak(),
+                    units="MiB",
+                )
+                step_timer.end(timestamp=metric_time)
 
             def _do_callback(_metrics):
                 jax.debug.callback(callback, _metrics)

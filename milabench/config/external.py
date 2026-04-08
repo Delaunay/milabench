@@ -2,7 +2,6 @@ import os
 import subprocess
 
 
-
 milabench = os.path.dirname(__file__)
 benchmarks = os.path.join(milabench, "..", "..", "benchmarks")
 extern_location = os.path.join(benchmarks, "_extern")

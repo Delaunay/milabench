@@ -79,23 +79,27 @@ class TestStepTimer:
 
     def test_end_pushes_rate(self):
         timer, pusher, _ = self.make_timer()
-        timer.step(32)
-        timer.end()
+        with patch("benchmate.timings.time.time", return_value=123.0):
+            timer.step(32)
+            timer.end()
 
         rate_call = pusher.call_args_list[0]
         kwargs = rate_call.kwargs
         assert kwargs["units"] == "items/s"
         assert kwargs["task"] == "train"
         assert kwargs["rate"] > 0
+        assert kwargs["time"] == 123.0
 
     def test_end_pushes_progress(self):
         timer, pusher, _ = self.make_timer()
-        timer.step(1)
-        timer.end()
+        with patch("benchmate.timings.time.time", return_value=123.0):
+            timer.step(1)
+            timer.end()
 
         progress_call = pusher.call_args_list[1]
         kwargs = progress_call.kwargs
         assert kwargs["task"] == "early_stop"
+        assert kwargs["time"] == 123.0
         progress = kwargs["progress"]
         assert progress[0] == 0  # n_obs before increment
         assert progress[1] == timer.total_obs
@@ -136,10 +140,39 @@ class TestStepTimer:
         # start_time should be updated to end_time after end()
         assert timer.start_time == timer.end_time
 
+    def test_reset_clears_measurement_state(self):
+        timer, _, _ = self.make_timer()
+        timer.n_size = 64
+        timer.n_obs = 3
+        timer.timesteps = 1024
+        timer.end_time = 99.0
+
+        with patch("benchmate.timings.time.perf_counter", return_value=1234.5):
+            timer.reset()
+
+        assert timer.start_time == 1234.5
+        assert timer.end_time == 0
+        assert timer.n_size == 0
+        assert timer.n_obs == 0
+        assert timer.timesteps == 0
+
     def test_log_forwards_kwargs_to_pusher(self):
         timer, pusher, _ = self.make_timer()
-        timer.log(loss=0.5, acc=0.9)
-        pusher.assert_called_once_with(loss=0.5, acc=0.9)
+        with patch("benchmate.timings.time.time", return_value=456.0):
+            timer.log(loss=0.5, acc=0.9)
+        pusher.assert_called_once_with(loss=0.5, acc=0.9, time=456.0)
+
+    def test_log_preserves_explicit_time(self):
+        timer, pusher, _ = self.make_timer()
+        timer.log(loss=0.5, time=789.0)
+        pusher.assert_called_once_with(loss=0.5, time=789.0)
+
+    def test_end_preserves_explicit_timestamp(self):
+        timer, pusher, _ = self.make_timer()
+        timer.step(1)
+        timer.end(timestamp=321.0)
+        assert pusher.call_args_list[0].kwargs["time"] == 321.0
+        assert pusher.call_args_list[1].kwargs["time"] == 321.0
 
     def test_multiple_steps_between_ends(self):
         timer, pusher, _ = self.make_timer()

@@ -1,0 +1,503 @@
+Failed to import warp: No module named 'warp'
+Failed to import mujoco_warp: No module named 'warp'
+No overseer found
+{"returns": 3.8359375, "loss": 0.0, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 172529.0753492769, "units": "items/s", "task": "train"}
+{"progress": [0, 65], "task": "early_stop"}
+{"returns": 4.234375, "loss": 0.0, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 386271.5696878565, "units": "items/s", "task": "train"}
+{"progress": [1, 65], "task": "early_stop"}
+{"returns": 3.8671875, "loss": 0.0, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 848852.2531634162, "units": "items/s", "task": "train"}
+{"progress": [2, 65], "task": "early_stop"}
+{"returns": 4.3359375, "loss": 0.0, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 857054.9669192286, "units": "items/s", "task": "train"}
+{"progress": [3, 65], "task": "early_stop"}
+{"returns": 4.0859375, "loss": 0.08432838320732117, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 231882.7504288788, "units": "items/s", "task": "train"}
+{"progress": [4, 65], "task": "early_stop"}
+{"returns": 3.5859375, "loss": 0.07837304472923279, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 217337.03807460956, "units": "items/s", "task": "train"}
+{"progress": [5, 65], "task": "early_stop"}
+{"returns": 3.8828125, "loss": 0.07605507969856262, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 216532.27713008173, "units": "items/s", "task": "train"}
+{"progress": [6, 65], "task": "early_stop"}
+{"returns": 3.9921875, "loss": 0.07210110127925873, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215743.6851445335, "units": "items/s", "task": "train"}
+{"progress": [7, 65], "task": "early_stop"}
+{"returns": 4.1015625, "loss": 0.06639742851257324, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215319.70082290415, "units": "items/s", "task": "train"}
+{"progress": [8, 65], "task": "early_stop"}
+{"returns": 3.3046875, "loss": 0.0627412497997284, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215217.00723133085, "units": "items/s", "task": "train"}
+{"progress": [9, 65], "task": "early_stop"}
+{"returns": 2.9921875, "loss": 0.05698462203145027, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215266.9152176859, "units": "items/s", "task": "train"}
+{"progress": [10, 65], "task": "early_stop"}
+{"returns": 2.625, "loss": 0.05209316313266754, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215130.40951599923, "units": "items/s", "task": "train"}
+{"progress": [11, 65], "task": "early_stop"}
+{"returns": 1.953125, "loss": 0.0469341054558754, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215356.19689793457, "units": "items/s", "task": "train"}
+{"progress": [12, 65], "task": "early_stop"}
+{"returns": 1.6796875, "loss": 0.04292340576648712, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 214980.08948711344, "units": "items/s", "task": "train"}
+{"progress": [13, 65], "task": "early_stop"}
+{"returns": 0.9453125, "loss": 0.040746789425611496, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215157.88084592947, "units": "items/s", "task": "train"}
+{"progress": [14, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373339372>303937363339382<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2033382>302<2022706?776572223:203230322>3037357=7=7=z[0:z{"returns": 0.6875, "loss": 0.03673647344112396, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215205.07806052908, "units": "items/s", "task": "train"}
+{"progress": [15, 65], "task": "early_stop"}
+{"returns": 0.9765625, "loss": 0.03405236452817917, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 214916.71073855832, "units": "items/s", "task": "train"}
+{"progress": [16, 65], "task": "early_stop"}
+{"returns": 2.390625, "loss": 0.03310570493340492, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215211.2610199899, "units": "items/s", "task": "train"}
+{"progress": [17, 65], "task": "early_stop"}
+{"returns": 4.3203125, "loss": 0.036309465765953064, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215457.59869712126, "units": "items/s", "task": "train"}
+{"progress": [18, 65], "task": "early_stop"}
+{"returns": 3.421875, "loss": 0.04248330742120743, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215301.66147523944, "units": "items/s", "task": "train"}
+{"progress": [19, 65], "task": "early_stop"}
+{"returns": 3.28125, "loss": 0.04749344661831856, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215548.9347618036, "units": "items/s", "task": "train"}
+{"progress": [20, 65], "task": "early_stop"}
+{"returns": 3.625, "loss": 0.049336597323417664, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215913.0714284902, "units": "items/s", "task": "train"}
+{"progress": [21, 65], "task": "early_stop"}
+{"returns": 6.4296875, "loss": 0.05214731767773628, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215396.04623911917, "units": "items/s", "task": "train"}
+{"progress": [22, 65], "task": "early_stop"}
+{"returns": 5.8515625, "loss": 0.057284750044345856, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215568.69462609533, "units": "items/s", "task": "train"}
+{"progress": [23, 65], "task": "early_stop"}
+{"returns": 4.453125, "loss": 0.0560327023267746, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215660.83996664148, "units": "items/s", "task": "train"}
+{"progress": [24, 65], "task": "early_stop"}
+{"returns": 6.984375, "loss": 0.054983220994472504, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215413.11520043988, "units": "items/s", "task": "train"}
+{"progress": [25, 65], "task": "early_stop"}
+{"returns": 7.515625, "loss": 0.051657866686582565, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215274.5384906123, "units": "items/s", "task": "train"}
+{"progress": [26, 65], "task": "early_stop"}
+{"returns": 7.171875, "loss": 0.052140213549137115, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215299.24795810474, "units": "items/s", "task": "train"}
+{"progress": [27, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373339382>303938303330362<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2033392>302<2022706?776572223:203235312>3634337=7=7=z[0:z{"returns": 9.640625, "loss": 0.05506851151585579, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215337.5866455035, "units": "items/s", "task": "train"}
+{"progress": [28, 65], "task": "early_stop"}
+{"returns": 11.8203125, "loss": 0.05717732012271881, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215357.9013536126, "units": "items/s", "task": "train"}
+{"progress": [29, 65], "task": "early_stop"}
+{"returns": 13.3203125, "loss": 0.054873671382665634, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215551.54285500775, "units": "items/s", "task": "train"}
+{"progress": [30, 65], "task": "early_stop"}
+{"returns": 14.71875, "loss": 0.05340471863746643, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 214888.5214732078, "units": "items/s", "task": "train"}
+{"progress": [31, 65], "task": "early_stop"}
+{"returns": 15.2890625, "loss": 0.04829810559749603, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215334.55525552144, "units": "items/s", "task": "train"}
+{"progress": [32, 65], "task": "early_stop"}
+{"returns": 15.546875, "loss": 0.04429761320352554, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 214779.05404208443, "units": "items/s", "task": "train"}
+{"progress": [33, 65], "task": "early_stop"}
+{"returns": 15.75, "loss": 0.04083436727523804, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215336.3632829697, "units": "items/s", "task": "train"}
+{"progress": [34, 65], "task": "early_stop"}
+{"returns": 17.171875, "loss": 0.03839994594454765, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215351.12452186955, "units": "items/s", "task": "train"}
+{"progress": [35, 65], "task": "early_stop"}
+{"returns": 18.640625, "loss": 0.03688221052289009, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215744.703505686, "units": "items/s", "task": "train"}
+{"progress": [36, 65], "task": "early_stop"}
+{"returns": 18.9296875, "loss": 0.03553852066397667, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215489.19341453048, "units": "items/s", "task": "train"}
+{"progress": [37, 65], "task": "early_stop"}
+{"returns": 18.4375, "loss": 0.033462174236774445, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215463.9934413164, "units": "items/s", "task": "train"}
+{"progress": [38, 65], "task": "early_stop"}
+{"returns": 17.78125, "loss": 0.033199865370988846, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215445.0714085539, "units": "items/s", "task": "train"}
+{"progress": [39, 65], "task": "early_stop"}
+{"returns": 17.6953125, "loss": 0.0350925549864769, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215392.70028361012, "units": "items/s", "task": "train"}
+{"progress": [40, 65], "task": "early_stop"}
+{"returns": 18.0078125, "loss": 0.03465304151177406, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215406.89734250374, "units": "items/s", "task": "train"}
+{"progress": [41, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373339392>3039383333332<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2033392>302<2022706?776572223:203235332>3231367=7=7=z[0:z{"returns": 18.2109375, "loss": 0.0346701517701149, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215332.68012122833, "units": "items/s", "task": "train"}
+{"progress": [42, 65], "task": "early_stop"}
+{"returns": 18.7109375, "loss": 0.034529976546764374, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215367.79218339085, "units": "items/s", "task": "train"}
+{"progress": [43, 65], "task": "early_stop"}
+{"returns": 19.515625, "loss": 0.034213900566101074, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215524.36566669206, "units": "items/s", "task": "train"}
+{"progress": [44, 65], "task": "early_stop"}
+{"returns": 20.0, "loss": 0.035378240048885345, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215400.5323185743, "units": "items/s", "task": "train"}
+{"progress": [45, 65], "task": "early_stop"}
+{"returns": 19.9296875, "loss": 0.038048576563596725, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215542.51469291226, "units": "items/s", "task": "train"}
+{"progress": [46, 65], "task": "early_stop"}
+{"returns": 21.1484375, "loss": 0.03944900259375572, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215244.4282077885, "units": "items/s", "task": "train"}
+{"progress": [47, 65], "task": "early_stop"}
+{"returns": 22.078125, "loss": 0.038688525557518005, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 213369.520947158, "units": "items/s", "task": "train"}
+{"progress": [48, 65], "task": "early_stop"}
+{"returns": 23.3984375, "loss": 0.0428277887403965, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215395.43726207735, "units": "items/s", "task": "train"}
+{"progress": [49, 65], "task": "early_stop"}
+{"returns": 23.4921875, "loss": 0.04702378809452057, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215631.08974902265, "units": "items/s", "task": "train"}
+{"progress": [50, 65], "task": "early_stop"}
+{"returns": 22.3515625, "loss": 0.04713473469018936, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215755.39162842048, "units": "items/s", "task": "train"}
+{"progress": [51, 65], "task": "early_stop"}
+{"returns": 21.9140625, "loss": 0.05039585009217262, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215497.7295336611, "units": "items/s", "task": "train"}
+{"progress": [52, 65], "task": "early_stop"}
+{"returns": 22.8046875, "loss": 0.05144881457090378, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215369.61561851786, "units": "items/s", "task": "train"}
+{"progress": [53, 65], "task": "early_stop"}
+{"returns": 22.6796875, "loss": 0.049156103283166885, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215468.76103562687, "units": "items/s", "task": "train"}
+{"progress": [54, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373430302>303938363333382<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2034302>302<2022706?776572223:203235302>3731397=7=7=z[0:z{"returns": 23.640625, "loss": 0.049482278525829315, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215503.86207687948, "units": "items/s", "task": "train"}
+{"progress": [55, 65], "task": "early_stop"}
+{"returns": 24.9453125, "loss": 0.04930751025676727, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215367.6359289575, "units": "items/s", "task": "train"}
+{"progress": [56, 65], "task": "early_stop"}
+{"returns": 25.609375, "loss": 0.05363070219755173, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215464.93079706456, "units": "items/s", "task": "train"}
+{"progress": [57, 65], "task": "early_stop"}
+{"returns": 24.453125, "loss": 0.05361345410346985, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215389.39156260202, "units": "items/s", "task": "train"}
+{"progress": [58, 65], "task": "early_stop"}
+{"returns": 23.875, "loss": 0.05257909744977951, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215465.18312449162, "units": "items/s", "task": "train"}
+{"progress": [59, 65], "task": "early_stop"}
+{"returns": 24.8828125, "loss": 0.05185586214065552, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215464.22853950536, "units": "items/s", "task": "train"}
+{"progress": [60, 65], "task": "early_stop"}
+{"returns": 26.140625, "loss": 0.05116373300552368, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215589.23625648388, "units": "items/s", "task": "train"}
+{"progress": [61, 65], "task": "early_stop"}
+{"returns": 27.1875, "loss": 0.05228128284215927, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215017.8143740829, "units": "items/s", "task": "train"}
+{"progress": [62, 65], "task": "early_stop"}
+{"returns": 25.234375, "loss": 0.058683134615421295, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 209866.26714201798, "units": "items/s", "task": "train"}
+{"progress": [63, 65], "task": "early_stop"}
+{"returns": 24.5234375, "loss": 0.0585859976708889, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215256.04045367142, "units": "items/s", "task": "train"}
+{"progress": [64, 65], "task": "early_stop"}
+{"returns": 25.8359375, "loss": 0.058340445160865784, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215442.5938860052, "units": "items/s", "task": "train"}
+{"progress": [65, 65], "task": "early_stop"}
+{"returns": 27.8671875, "loss": 0.05265267938375473, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215786.84133408888, "units": "items/s", "task": "train"}
+{"progress": [66, 65], "task": "early_stop"}
+{"returns": 27.6015625, "loss": 0.06091596186161041, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215363.52479766044, "units": "items/s", "task": "train"}
+{"progress": [67, 65], "task": "early_stop"}
+{"returns": 26.515625, "loss": 0.06518560647964478, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215387.56813013827, "units": "items/s", "task": "train"}
+{"progress": [68, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373430312>303938393333352<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2034302>302<2022706?776572223:203234392>3735357=7=7=z[0:z{"returns": 26.125, "loss": 0.05886513739824295, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215344.68417685587, "units": "items/s", "task": "train"}
+{"progress": [69, 65], "task": "early_stop"}
+{"returns": 26.890625, "loss": 0.06256017833948135, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215197.34110011254, "units": "items/s", "task": "train"}
+{"progress": [70, 65], "task": "early_stop"}
+{"returns": 24.984375, "loss": 0.06700068712234497, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215225.52146253182, "units": "items/s", "task": "train"}
+{"progress": [71, 65], "task": "early_stop"}
+{"returns": 24.0703125, "loss": 0.06588292121887207, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215376.03416679712, "units": "items/s", "task": "train"}
+{"progress": [72, 65], "task": "early_stop"}
+{"returns": 23.78125, "loss": 0.07094267010688782, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215472.61742184567, "units": "items/s", "task": "train"}
+{"progress": [73, 65], "task": "early_stop"}
+{"returns": 23.9453125, "loss": 0.06594682484865189, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215513.4733247218, "units": "items/s", "task": "train"}
+{"progress": [74, 65], "task": "early_stop"}
+{"returns": 24.6328125, "loss": 0.07116638123989105, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215223.43117879366, "units": "items/s", "task": "train"}
+{"progress": [75, 65], "task": "early_stop"}
+{"returns": 24.0390625, "loss": 0.07644382119178772, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215370.0044060143, "units": "items/s", "task": "train"}
+{"progress": [76, 65], "task": "early_stop"}
+{"returns": 22.2109375, "loss": 0.07174119353294373, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215411.8943557922, "units": "items/s", "task": "train"}
+{"progress": [77, 65], "task": "early_stop"}
+{"returns": 23.859375, "loss": 0.08172386884689331, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 213422.3106251715, "units": "items/s", "task": "train"}
+{"progress": [78, 65], "task": "early_stop"}
+{"returns": 24.28125, "loss": 0.08800266683101654, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215204.1894662215, "units": "items/s", "task": "train"}
+{"progress": [79, 65], "task": "early_stop"}
+{"returns": 26.1484375, "loss": 0.08124706149101257, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215442.79111308462, "units": "items/s", "task": "train"}
+{"progress": [80, 65], "task": "early_stop"}
+{"returns": 29.8515625, "loss": 0.0858021229505539, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215825.79007554732, "units": "items/s", "task": "train"}
+{"progress": [81, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373430322>303939313931372<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2034302>302<2022706?776572223:203235302>3431327=7=7=z[0:z{"returns": 29.3359375, "loss": 0.08883461356163025, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215372.47148438694, "units": "items/s", "task": "train"}
+{"progress": [82, 65], "task": "early_stop"}
+{"returns": 27.59375, "loss": 0.1007860004901886, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215421.4042101942, "units": "items/s", "task": "train"}
+{"progress": [83, 65], "task": "early_stop"}
+{"returns": 27.8828125, "loss": 0.09465663880109787, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215169.93784553598, "units": "items/s", "task": "train"}
+{"progress": [84, 65], "task": "early_stop"}
+{"returns": 31.0703125, "loss": 0.09219145774841309, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215528.23553508884, "units": "items/s", "task": "train"}
+{"progress": [85, 65], "task": "early_stop"}
+{"returns": 29.2890625, "loss": 0.09041360020637512, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215178.40489407344, "units": "items/s", "task": "train"}
+{"progress": [86, 65], "task": "early_stop"}
+{"returns": 29.09375, "loss": 0.0952472984790802, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215508.17591465486, "units": "items/s", "task": "train"}
+{"progress": [87, 65], "task": "early_stop"}
+{"returns": 28.3515625, "loss": 0.09377577155828476, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215682.19862332445, "units": "items/s", "task": "train"}
+{"progress": [88, 65], "task": "early_stop"}
+{"returns": 27.8046875, "loss": 0.09482109546661377, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215191.46588363766, "units": "items/s", "task": "train"}
+{"progress": [89, 65], "task": "early_stop"}
+{"returns": 30.375, "loss": 0.09463146328926086, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215167.0701687906, "units": "items/s", "task": "train"}
+{"progress": [90, 65], "task": "early_stop"}
+{"returns": 30.8046875, "loss": 0.08846563845872879, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215281.73066977764, "units": "items/s", "task": "train"}
+{"progress": [91, 65], "task": "early_stop"}
+{"returns": 31.671875, "loss": 0.0951947346329689, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215391.0529990694, "units": "items/s", "task": "train"}
+{"progress": [92, 65], "task": "early_stop"}
+{"returns": 34.125, "loss": 0.10261289775371552, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 213197.92155759566, "units": "items/s", "task": "train"}
+{"progress": [93, 65], "task": "early_stop"}
+{"returns": 33.3359375, "loss": 0.1006881520152092, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215204.07658123563, "units": "items/s", "task": "train"}
+{"progress": [94, 65], "task": "early_stop"}
+{"returns": 33.375, "loss": 0.09289898723363876, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215337.78064387277, "units": "items/s", "task": "train"}
+{"progress": [95, 65], "task": "early_stop"}
+{"returns": 32.8515625, "loss": 0.10804402828216553, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215822.81474034127, "units": "items/s", "task": "train"}
+{"progress": [96, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373430332>303939343532352<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2034312>302<2022706?776572223:203235302>3636357=7=7=z[0:z{"returns": 32.671875, "loss": 0.10389527678489685, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215584.26584277212, "units": "items/s", "task": "train"}
+{"progress": [97, 65], "task": "early_stop"}
+{"returns": 31.296875, "loss": 0.09515070170164108, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215302.12219469433, "units": "items/s", "task": "train"}
+{"progress": [98, 65], "task": "early_stop"}
+{"returns": 30.53125, "loss": 0.1070016622543335, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215281.07310612765, "units": "items/s", "task": "train"}
+{"progress": [99, 65], "task": "early_stop"}
+{"returns": 33.0859375, "loss": 0.10844793170690536, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215528.62726139085, "units": "items/s", "task": "train"}
+{"progress": [100, 65], "task": "early_stop"}
+{"returns": 32.0703125, "loss": 0.11771585047245026, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215244.24010821266, "units": "items/s", "task": "train"}
+{"progress": [101, 65], "task": "early_stop"}
+{"returns": 32.5703125, "loss": 0.10882708430290222, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215418.42583310162, "units": "items/s", "task": "train"}
+{"progress": [102, 65], "task": "early_stop"}
+{"returns": 32.515625, "loss": 0.11184786260128021, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215330.54423528365, "units": "items/s", "task": "train"}
+{"progress": [103, 65], "task": "early_stop"}
+{"returns": 30.7109375, "loss": 0.11079642176628113, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215234.40983471888, "units": "items/s", "task": "train"}
+{"progress": [104, 65], "task": "early_stop"}
+{"returns": 35.46875, "loss": 0.11501287668943405, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215569.1825238935, "units": "items/s", "task": "train"}
+{"progress": [105, 65], "task": "early_stop"}
+{"returns": 35.421875, "loss": 0.11654684692621231, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215456.81812656904, "units": "items/s", "task": "train"}
+{"progress": [106, 65], "task": "early_stop"}
+{"returns": 37.59375, "loss": 0.10969579219818115, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215359.205950271, "units": "items/s", "task": "train"}
+{"progress": [107, 65], "task": "early_stop"}
+{"returns": 39.34375, "loss": 0.10578185319900513, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215074.01340449293, "units": "items/s", "task": "train"}
+{"progress": [108, 65], "task": "early_stop"}
+{"returns": 40.0703125, "loss": 0.11038796603679657, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215477.4806648957, "units": "items/s", "task": "train"}
+{"progress": [109, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373430342>313635393039352<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2034312>302<2022706?776572223:203235322>3331317=7=7=z[0:z{"returns": 37.578125, "loss": 0.09922879934310913, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215375.93291424875, "units": "items/s", "task": "train"}
+{"progress": [110, 65], "task": "early_stop"}
+{"returns": 35.5625, "loss": 0.10734530538320541, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215817.88336814422, "units": "items/s", "task": "train"}
+{"progress": [111, 65], "task": "early_stop"}
+{"returns": 35.3984375, "loss": 0.10725562274456024, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215500.40261595772, "units": "items/s", "task": "train"}
+{"progress": [112, 65], "task": "early_stop"}
+{"returns": 37.3828125, "loss": 0.1067606657743454, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215450.30796288297, "units": "items/s", "task": "train"}
+{"progress": [113, 65], "task": "early_stop"}
+{"returns": 39.390625, "loss": 0.10507598519325256, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215183.02947618964, "units": "items/s", "task": "train"}
+{"progress": [114, 65], "task": "early_stop"}
+{"returns": 38.3671875, "loss": 0.1126687228679657, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215213.37398326938, "units": "items/s", "task": "train"}
+{"progress": [115, 65], "task": "early_stop"}
+{"returns": 37.078125, "loss": 0.11268206685781479, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215378.39135302955, "units": "items/s", "task": "train"}
+{"progress": [116, 65], "task": "early_stop"}
+{"returns": 37.609375, "loss": 0.1219404935836792, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215330.42548248306, "units": "items/s", "task": "train"}
+{"progress": [117, 65], "task": "early_stop"}
+{"returns": 37.796875, "loss": 0.12127808481454849, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215400.19304574336, "units": "items/s", "task": "train"}
+{"progress": [118, 65], "task": "early_stop"}
+{"returns": 38.0, "loss": 0.12387263774871826, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215427.70698562276, "units": "items/s", "task": "train"}
+{"progress": [119, 65], "task": "early_stop"}
+{"returns": 39.421875, "loss": 0.12917953729629517, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215455.37927053304, "units": "items/s", "task": "train"}
+{"progress": [120, 65], "task": "early_stop"}
+{"returns": 39.4765625, "loss": 0.14035451412200928, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215415.66193501977, "units": "items/s", "task": "train"}
+{"progress": [121, 65], "task": "early_stop"}
+{"returns": 40.8515625, "loss": 0.12816700339317322, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215376.0979559515, "units": "items/s", "task": "train"}
+{"progress": [122, 65], "task": "early_stop"}
+{"returns": 43.2890625, "loss": 0.12803182005882263, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215546.53057158348, "units": "items/s", "task": "train"}
+{"progress": [123, 65], "task": "early_stop"}
+[7;227461736;223:20226=61696>222<202274696=65223:20313737353636373430352>313637363732322<202267707564617461223:207;2230223:207;226=656=6?7279223:205;323836332>353632352<2034363036382>305=2<20226<6?6164223:20302>39362<202274656=7065726174757265223:2034322>302<2022706?776572223:203235312>3831347=7=7=z[0:z{"returns": 42.2890625, "loss": 0.13473130762577057, "task": "train"}
+{"memory_peak": 637.89404296875, "units": "MiB", "task": "train"}
+{"rate": 215133.12871998813, "units": "items/s", "task": "train"}
+{"progress": [124, 65], "task": "early_stop"}

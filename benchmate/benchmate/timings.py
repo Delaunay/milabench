@@ -37,28 +37,43 @@ class StepTimer:
            
     """
     def __init__(self, pusher, sync = lambda: None):
+        self.total_obs = total_observations()
         self.start_time = time.perf_counter()
+        self.pusher = pusher
+        self.sync = sync
+        self.reset()
+
+    def reset(self, start_time=None):
+        """Reset timer state so a fresh throughput window can begin."""
+        self.start_time = time.perf_counter() if start_time is None else start_time
         self.end_time = 0
         self.n_size = 0
         self.n_obs = 0
-        self.total_obs = total_observations()
-        self.pusher = pusher
-        self.sync = sync
         self.timesteps = 0
 
     def step(self, step_size):
         """Log a batch size or work that was been done"""
         self.n_size += step_size
 
-    def end(self):
+    def _metric_time(self, timestamp=None):
+        return time.time() if timestamp is None else timestamp
+
+    def end(self, timestamp=None):
         """Push a new perf observation"""
+        metric_time = self._metric_time(timestamp)
         self.sync()
         self.end_time = time.perf_counter()
-        self.pusher(rate=self.n_size/(self.end_time - self.start_time), units="items/s", task="train")
-        self.pusher(progress=(self.n_obs, self.total_obs), task="early_stop")
+        self.pusher(
+            rate=self.n_size / (self.end_time - self.start_time),
+            units="items/s",
+            task="train",
+            time=metric_time,
+        )
+        self.pusher(progress=(self.n_obs, self.total_obs), task="early_stop", time=metric_time)
         self.n_size = 0
         self.n_obs += 1
         self.start_time = self.end_time
 
-    def log(self, **kwargs):
+    def log(self, timestamp=None, **kwargs):
+        kwargs.setdefault("time", self._metric_time(timestamp))
         self.pusher(**kwargs)

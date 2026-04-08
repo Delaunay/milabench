@@ -1,0 +1,31 @@
+{
+  "experiment": "b16384",
+  "config_name": "dqn-fp16-b16384",
+  "seed": 1,
+  "command": [
+    "/tmp/results/venv/torch/bin/python",
+    "/tmp/milabench/benchmarks/purejaxrl/main.py",
+    "dqn",
+    "--seed",
+    "1",
+    "--num_envs",
+    "128",
+    "--buffer_batch_size",
+    "16384",
+    "--training_interval",
+    "10",
+    "--learning_starts",
+    "10000",
+    "--buffer_size",
+    "131072",
+    "--env_name",
+    "SpaceInvaders-MinAtar",
+    "--total_timesteps",
+    "2000000",
+    "--dtype",
+    "fp16"
+  ],
+  "env": {
+    "PUREJAXRL_DQN_SCAN_UNROLL": "4"
+  }
+}

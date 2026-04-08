@@ -1,0 +1,1 @@
+/tmp/results/venv/torch/bin/python /tmp/milabench/benchmarks/purejaxrl/main.py dqn --seed 4 --num_envs 128 --buffer_batch_size 32768 --training_interval 10 --learning_starts 10000 --buffer_size 131072 --env_name SpaceInvaders-MinAtar --total_timesteps 2000000 --dtype fp16

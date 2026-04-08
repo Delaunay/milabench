@@ -6,17 +6,108 @@ _purejaxrl:
   plan:
     method: per_gpu
 
-dqn:
+_dqn-base:
   inherits: _purejaxrl
   argv:
     dqn: true
+    --seed: 0
     --num_envs: auto({cpu_per_gpu}, 128)
-    --buffer_batch_size: 128
-    --env_name: CartPole-v1
+    --buffer_batch_size: 65536
     --training_interval: 10
     --learning_starts: 10000
+    --buffer_size: 131072
+    --env_name: SpaceInvaders-MinAtar
 
-ppo:
+_dqn-2m:
+  inherits: _dqn-base
+  argv:
+    --total_timesteps: 2000000
+
+_dqn-20m:
+  inherits: _dqn-base
+  argv:
+    --total_timesteps: 20000000
+
+dqn:
+  inherits: _dqn-20m
+  argv:
+    --dtype: fp16
+
+dqn-bf16:
+  inherits: _dqn-2m
+  argv:
+    --dtype: bf16
+
+dqn-fp16:
+  inherits: _dqn-2m
+  argv:
+    --dtype: fp16
+
+dqn-fp16-b32768:
+  inherits: _dqn-2m
+  argv:
+    --dtype: fp16
+    --buffer_batch_size: 32768
+
+dqn-fp16-b16384:
+  inherits: _dqn-2m
+  argv:
+    --dtype: fp16
+    --buffer_batch_size: 16384
+
+dqn-fp16-b8192:
+  inherits: _dqn-2m
+  argv:
+    --dtype: fp16
+    --buffer_batch_size: 8192
+
+dqn-fp32-20m:
+  inherits: _dqn-20m
+
+dqn-fp16-20m:
+  inherits: _dqn-20m
+  argv:
+    --dtype: fp16
+
+dqn-fp16-20m-b32768:
+  inherits: _dqn-20m
+  argv:
+    --dtype: fp16
+    --buffer_batch_size: 32768
+
+dqn-fp16-20m-b16384:
+  inherits: _dqn-20m
+  argv:
+    --dtype: fp16
+    --buffer_batch_size: 16384
+
+dqn-fp16-20m-b8192:
+  inherits: _dqn-20m
+  argv:
+    --dtype: fp16
+    --buffer_batch_size: 8192
+
+dqn-numenvs160:
+  inherits: _dqn-2m
+  argv:
+    --num_envs: 160
+
+dqn-numenvs192:
+  inherits: _dqn-2m
+  argv:
+    --num_envs: 192
+
+dqn-numenvs256:
+  inherits: _dqn-2m
+  argv:
+    --num_envs: 256
+
+dqn-trainint20:
+  inherits: _dqn-2m
+  argv:
+    --training_interval: 20
+
+_ppo-base:
   inherits: _purejaxrl
   argv:
     ppo: true
@@ -26,3 +117,6 @@ ppo:
     --update_epochs: 4
     --env_name: hopper
     --total_timesteps: 200000
+
+ppo:
+  inherits: _ppo-base

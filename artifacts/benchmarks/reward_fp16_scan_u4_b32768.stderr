@@ -1,0 +1,27 @@
+/tmp/results/venv/torch/lib/python3.12/site-packages/jax/_src/ops/scatter.py:104: FutureWarning: scatter inputs have incompatible types: cannot safely cast value from dtype=int32 to dtype=bool with jax_numpy_dtype_promotion=standard. In future JAX releases this will result in an error.
+  warnings.warn(
+/tmp/results/venv/torch/lib/python3.12/site-packages/jax/_src/ops/scatter.py:104: FutureWarning: scatter inputs have incompatible types: cannot safely cast value from dtype=float32 to dtype=bool with jax_numpy_dtype_promotion=standard. In future JAX releases this will result in an error.
+  warnings.warn(
+/tmp/results/venv/torch/lib/python3.12/site-packages/jax/_src/numpy/array_methods.py:125: UserWarning: Explicitly requested dtype int64 requested in astype is not available, and will be truncated to dtype int32. To enable more dtypes, set the jax_enable_x64 configuration option or the JAX_ENABLE_X64 shell environment variable. See https://github.com/jax-ml/jax#current-gotchas for more.
+  return lax_numpy.astype(self, dtype, copy=copy, device=device)
+E0408 14:59:57.959001 2488367 xtile_compiler.cc:399] Fusion: gemm_fusion_dot = f16[32768,120]{1,0} fusion(bitcast.2182, bitcast.2181), kind=kCustom, calls=gemm_fusion_dot_computation.clone, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"fusion_backend_config":{"kind":"__triton_nested_gemm_fusion","block_level_fusion_config":{"num_warps":"8","output_tiles":[{"sizes":["128","128"]}],"num_ctas":1,"num_stages":4,"is_tma_allowed":false,"is_warp_specialization_allowed":false}},"force_earliest_schedule":false,"reification_cost":[],"device_type":"DEVICE_TYPE_INVALID"}
+E0408 14:59:57.959084 2488367 xtile_compiler.cc:401] Computation: gemm_fusion_dot_computation.clone {
+  parameter_0 = f16[32768,600]{1,0} parameter(0)
+  parameter_1 = f16[600,120]{1,0} parameter(1)
+  ROOT dot.118 = f16[32768,120]{1,0} dot(parameter_0, parameter_1), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={"sizes":["64"]}
+}
+E0408 14:59:59.702542 2488367 xtile_compiler.cc:399] Fusion: gemm_fusion_dot.106 = f16[128,120]{1,0} fusion(bitcast.2267, bitcast.2266), kind=kCustom, calls=gemm_fusion_dot.106_computation.clone, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"fusion_backend_config":{"kind":"__triton_nested_gemm_fusion","block_level_fusion_config":{"num_warps":"8","output_tiles":[{"sizes":["128","256"]}],"num_ctas":1,"num_stages":4,"is_tma_allowed":false,"is_warp_specialization_allowed":false}},"force_earliest_schedule":false,"reification_cost":[],"device_type":"DEVICE_TYPE_INVALID"}
+E0408 14:59:59.702647 2488367 xtile_compiler.cc:401] Computation: gemm_fusion_dot.106_computation.clone {
+  parameter_0.55 = f16[128,600]{1,0} parameter(0)
+  parameter_1.55 = f16[600,120]{1,0} parameter(1)
+  ROOT dot.173 = f16[128,120]{1,0} dot(parameter_0.55, parameter_1.55), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={"sizes":["64"]}
+}
+E0408 14:59:59.813427 2488371 xtile_compiler.cc:399] Fusion: gemm_fusion_dot.107 = f16[128,84]{1,0} fusion(add.33388, bitcast.2268), kind=kCustom, calls=gemm_fusion_dot.107_computation.clone, backend_config={"operation_queue_id":"0","wait_on_operation_queues":[],"fusion_backend_config":{"kind":"__triton_nested_gemm_fusion","block_level_fusion_config":{"num_warps":"8","output_tiles":[{"sizes":["128","256"]}],"num_ctas":1,"num_stages":4,"is_tma_allowed":false,"is_warp_specialization_allowed":false}},"force_earliest_schedule":false,"reification_cost":[],"device_type":"DEVICE_TYPE_INVALID"}
+E0408 14:59:59.813543 2488371 xtile_compiler.cc:401] Computation: gemm_fusion_dot.107_computation.clone {
+  parameter_0.56 = f16[128,120]{1,0} parameter(0)
+  constant_15134 = f16[] constant(0)
+  broadcast.13347 = f16[128,120]{1,0} broadcast(constant_15134), dimensions={}
+  max.618 = f16[128,120]{1,0} maximum(parameter_0.56, broadcast.13347)
+  parameter_1.56 = f16[120,84]{1,0} parameter(1)
+  ROOT dot.174 = f16[128,84]{1,0} dot(max.618, parameter_1.56), lhs_contracting_dims={1}, rhs_contracting_dims={0}, backend_config={"sizes":["64"]}
+}
